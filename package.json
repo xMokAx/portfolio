@@ -1,0 +1,48 @@
+{
+  "name": "portfolio",
+  "author": "Ahmed Mokhtar",
+  "private": true,
+  "description": "Ahmed Mokhtar's portfolio",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "env-cmd -f .env gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.2.0",
+    "bulma": "^0.7.5",
+    "gatsby": "^2.8.6",
+    "gatsby-image": "^2.1.4",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-react-svg": "^2.1.1",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.1.3",
+    "gatsby-remark-autolink-headers": "^2.1.0",
+    "gatsby-remark-images": "^3.0.14",
+    "gatsby-remark-images-contentful": "^2.1.0",
+    "gatsby-remark-relative-images": "^0.2.2",
+    "gatsby-source-contentful": "2.0.71",
+    "gatsby-source-filesystem": "^2.0.38",
+    "gatsby-transformer-remark": "^2.3.12",
+    "gatsby-transformer-sharp": "^2.1.21",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "recharts": "^1.6.2"
+  },
+  "devDependencies": {
+    "env-cmd": "^9.0.3",
+    "prettier": "^1.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xMokAx/portfolio"
+  }
+}

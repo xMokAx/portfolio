@@ -1,0 +1,2 @@
+# This is my personal website :- [ahmedmokhtar.com](https//:ahmedmokhtar.com)
+This is a [Gatsby](https://www.gatsbyjs.org)-powered site where i speak about myself, about things i'm trying to do, about web development.
