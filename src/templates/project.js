@@ -59,7 +59,11 @@ const Project = props => {
             <h1>{title}</h1>
             <Image
               fluid={featuredImage.fluid}
-              alt={featuredImage.description}
+              alt={`${
+                featuredImage.description
+                  ? featuredImage.description
+                  : featuredImage.title
+              }`}
               style={{ marginBottom: "16px" }}
               className="has-shadow"
             />

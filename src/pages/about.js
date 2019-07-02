@@ -244,20 +244,20 @@ const AboutPage = () => (
                   <li>
                     <span role="img" aria-label="Video Games">
                       🎮
-                    </span>
-                    🎮 Video Games
+                    </span>{" "}
+                    Video Games
                   </li>
                   <li>
                     <span role="img" aria-label="Reading">
                       📚
-                    </span>
-                    📚 Reading
+                    </span>{" "}
+                    Reading
                   </li>
                   <li>
                     <span role="img" aria-label="Drinking Coffe">
                       ☕️
-                    </span>
-                    ☕️ Drinking Coffe
+                    </span>{" "}
+                    Drinking Coffe
                   </li>
                 </ul>
               </article>

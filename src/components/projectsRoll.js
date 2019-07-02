@@ -13,6 +13,7 @@ const ProjectsRoll = ({ showFeaturedOnly }) => {
             title
             description
             featuredImage {
+              title
               description
               fluid {
                 ...GatsbyContentfulFluid_withWebp_noBase64
@@ -62,7 +63,6 @@ const ProjectsRoll = ({ showFeaturedOnly }) => {
                   source={source}
                   slug={slug}
                   featuredImage={featuredImage}
-                  alt={project.featuredImage.description}
                   featured={featured}
                   showFeaturedOnly={showFeaturedOnly}
                 />

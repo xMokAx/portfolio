@@ -12,6 +12,7 @@ export const query = graphql`
       publishDate(formatString: "MMMM Do, YYYY")
       tags
       featuredImage {
+        title
         description
         fluid {
           ...GatsbyContentfulFluid_withWebp_noBase64
@@ -36,7 +37,6 @@ const Blog = props => {
     tags,
   } = props.data.contentfulBlogPost
   const { html, timeToRead } = body.childMarkdownRemark
-  const { description, fluid } = featuredImage
 
   return (
     <Layout>
@@ -48,12 +48,18 @@ const Blog = props => {
         <div className="container">
           <article className="content">
             <h1>{title}</h1>
-            <Image
-              fluid={fluid}
-              alt={description}
-              className="has-shadow"
-              style={{ marginBottom: "16px" }}
-            />
+            {featuredImage && (
+              <Image
+                fluid={featuredImage.fluid}
+                alt={`${
+                  featuredImage.description
+                    ? featuredImage.description
+                    : featuredImage.title
+                }`}
+                className="has-shadow"
+                style={{ marginBottom: "16px" }}
+              />
+            )}
             <div className="buttons">
               {tags.map(tag => (
                 <Link key={tag} className="button is-light" to={`/blog/${tag}`}>

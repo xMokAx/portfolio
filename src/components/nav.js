@@ -42,7 +42,8 @@ class Nav extends Component {
           <Link to="/">
             <Image
               fluid={this.props.data.file.childImageSharp.fluid}
-              className="logo-image is-circle "
+              className="logo-image is-circle"
+              alt="Ahmed Mokhtar Photo"
             />
           </Link>
           <Link

@@ -17,6 +17,8 @@ const PostsRoll = ({ showFeaturedOnly }) => {
             tags
             slug
             featuredImage {
+              title
+              description
               fixed(width: 100, height: 100) {
                 ...GatsbyContentfulFixed_withWebp_noBase64
               }
@@ -37,8 +39,16 @@ const PostsRoll = ({ showFeaturedOnly }) => {
       <div className="container">
         <div className="columns is-centered is-multiline">
           {data.allContentfulBlogPost.edges.map(({ node: post }) => {
-            const { id, title, publishDate, slug, featured, body, tags } = post
-            const featuredImage = post.featuredImage.fixed
+            const {
+              id,
+              title,
+              publishDate,
+              slug,
+              featured,
+              body,
+              tags,
+              featuredImage,
+            } = post
             const { excerpt, timeToRead } = body.childMarkdownRemark
             if (showFeaturedOnly) {
               if (!featured) {

@@ -23,9 +23,18 @@ const PostCard = ({
     style={{ cursor: "pointer" }}
   >
     <div className="media blog-card-header">
-      <div className="media-left">
-        <Image fixed={featuredImage} />
-      </div>
+      {featuredImage && (
+        <div className="media-left">
+          <Image
+            fixed={featuredImage.fixed}
+            alt={`${
+              featuredImage.description
+                ? featuredImage.description
+                : featuredImage.title
+            }`}
+          />
+        </div>
+      )}
       <div className="media-content" style={{ paddingBottom: "8px" }}>
         <div className="content">
           <Link to={`/blog/${slug}`}>

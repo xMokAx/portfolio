@@ -144,7 +144,6 @@ $footer-padding: 1rem 1rem 1.5rem;
 .main-container>section {
   flex: 1 1 0;
   width: 100%;
-  height: 100%;
 }
 
 .profile {
@@ -222,8 +221,10 @@ a.shadow {
 .fixed-right-button {
   position: fixed;
   right: 0;
-  border-radius: 0;
+  top: 64px;
   z-index: 1;
+  border-radius: 0;
+  border-bottom-left-radius: 4px;
 }
 
 .secondary-title {
@@ -272,6 +273,10 @@ a.shadow {
   .featured-title {
     top: 0;
     padding: 24px;
+  }
+
+  .fixed-right-button {
+    top: 0;
   }
 
   .techno-icon {

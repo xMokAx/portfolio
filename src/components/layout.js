@@ -30,6 +30,7 @@ const Layout = props => {
           <Image
             fluid={data.file.childImageSharp.fluid}
             className="pulse profile-image is-circle"
+            alt="Ahmed Mokhtar Photo"
           />
           <h1 className="title has-text-primary">
             {data.site.siteMetadata.author}

@@ -11,7 +11,6 @@ const ProjectCard = ({
   slug,
   featuredImage,
   featured,
-  alt,
   showFeaturedOnly,
 }) => {
   const footerLinkColor =
@@ -27,7 +26,14 @@ const ProjectCard = ({
       style={{ cursor: "pointer" }}
     >
       <div className="card-image">
-        <Image fluid={featuredImage.fluid} alt={featuredImage.description} />
+        <Image
+          fluid={featuredImage.fluid}
+          alt={`${
+            featuredImage.description
+              ? featuredImage.description
+              : featuredImage.title
+          }`}
+        />
       </div>
       <div className="card-content">
         <h2 className="title">{title}</h2>
