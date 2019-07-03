@@ -37,19 +37,19 @@ const PostCard = ({
       )}
       <div className="media-content" style={{ paddingBottom: "8px" }}>
         <div className="content">
-          <Link to={`/blog/${slug}`}>
-            <h2 className="title is-size-5-mobile is-marginless is-underlined">
-              {title}
-            </h2>
+          <Link to={`/blog/${slug}`} className="is-underlined-hover">
+            <h2 className="title is-size-5-mobile is-marginless">{title}</h2>
           </Link>
           <div>
-            <small className="is-block has-text-grey">{publishDate}</small>
-            <small className="is-block has-text-grey">
-              {timeToRead} min read
-            </small>
+            <small className="is-block">{publishDate}</small>
+            <small className="is-block">{timeToRead} min read</small>
             <div className="buttons are-small">
               {tags.map(tag => (
-                <Link key={tag} className="button is-light" to={`/blog/${tag}`}>
+                <Link
+                  key={tag}
+                  className="button is-light"
+                  to={`/blog/tag/${tag}`}
+                >
                   {tag}
                 </Link>
               ))}

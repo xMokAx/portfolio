@@ -36,7 +36,9 @@ const ProjectCard = ({
         />
       </div>
       <div className="card-content">
-        <h2 className="title">{title}</h2>
+        <Link to={`/projects/${slug}`} className="is-underlined-hover">
+          <h2 className="title">{title}</h2>
+        </Link>
         <h3 className="subtitle">{description}</h3>
         <div className="content">
           <p className="is-capitalized">

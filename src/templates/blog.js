@@ -62,7 +62,11 @@ const Blog = props => {
             )}
             <div className="buttons">
               {tags.map(tag => (
-                <Link key={tag} className="button is-light" to={`/blog/${tag}`}>
+                <Link
+                  key={tag}
+                  className="button is-light"
+                  to={`/blog/tag/${tag}`}
+                >
                   {tag}
                 </Link>
               ))}
