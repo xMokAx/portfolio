@@ -25,7 +25,7 @@ const ProjectCard = ({
       }`}
       style={{ cursor: "pointer" }}
     >
-      <div className="card-image">
+      <div className="card-image has-border-bottom">
         <Image
           fluid={featuredImage.fluid}
           alt={`${

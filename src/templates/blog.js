@@ -4,13 +4,17 @@ import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import Head from "../components/head"
+import TagsList from "../components/tagsList"
 
 export const query = graphql`
   query($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
-      tags
+      tags {
+        name
+        slug
+      }
       featuredImage {
         title
         description
@@ -60,17 +64,7 @@ const Blog = props => {
                 style={{ marginBottom: "16px" }}
               />
             )}
-            <div className="buttons">
-              {tags.map(tag => (
-                <Link
-                  key={tag}
-                  className="button is-light"
-                  to={`/blog/tag/${tag}`}
-                >
-                  {tag}
-                </Link>
-              ))}
-            </div>
+            <TagsList tags={tags} />
             <div className="is-flex">
               <p>
                 <span role="img" aria-label="publish date">
@@ -80,7 +74,7 @@ const Blog = props => {
               </p>
               <span style={{ margin: "0 8px" }}>•</span>
               <p>
-                <span role="img" aria-label="publish date">
+                <span role="img" aria-label="time to read">
                   ⏱️
                 </span>{" "}
                 {timeToRead} min read

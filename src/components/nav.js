@@ -64,7 +64,6 @@ class Nav extends Component {
             className={`navbar-burger button is-black ${
               this.state.isMenuActive ? "is-active" : ""
             }`}
-            style={{ margin: "0" }}
             id="navbar-burger"
             aria-label="menu"
             aria-expanded="false"

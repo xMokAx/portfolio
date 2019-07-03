@@ -14,7 +14,10 @@ const PostsRoll = ({ showFeaturedOnly }) => {
             description
             featured
             publishDate(formatString: "MMMM Do, YYYY")
-            tags
+            tags {
+              name
+              slug
+            }
             slug
             featuredImage {
               title

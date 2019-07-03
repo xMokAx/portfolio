@@ -136,6 +136,10 @@ $footer-padding: 1rem 1rem 1.5rem;
   box-shadow: 0 2px 3px rgba(0, 23, 31, 0.1), 0 0 0 1px rgba(0, 23, 31, 0.1);
 }
 
+.has-border-bottom {
+  border-bottom: rgba(0, 23, 31, 0.1) solid 1px;
+}
+
 // layout
 .wrapper {
   display: flex;
@@ -174,7 +178,7 @@ $footer-padding: 1rem 1rem 1.5rem;
 .logo-image {
   width: 48px;
   height: 48px;
-  margin: 0 24px;
+  margin-left: 16px;
 }
 
 .contact-container {
@@ -199,6 +203,7 @@ a.shadow {
 
 .navbar-burger {
   height: 4rem;
+  margin-left: 12px;
   color: $primary !important;
 
   &:focus {
@@ -235,6 +240,10 @@ a.shadow {
 
 .secondary-title {
   padding: 12px;
+}
+
+.is-featured {
+  background-color: rgba($primary, 0.15)
 }
 
 .techno-icon {
