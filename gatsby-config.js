@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "Portfolio",
+    title: "Front End Developer",
     author: "Ahmed Mokhtar",
     description:
       "i'm a self-taught self-motivated front end web developer. I enjoy programming, solving problems and learning new technologies. I give a great attention to details. The sense of achievment is the thing that keeps me going and makes me happy the most.",
-    url: "https://ahmedmokhtar.com/",
-    image: "https://ahmedmokhtar.com/src/images/ahmed-mokhtar.jpg",
+    siteUrl: "https://ahmedmokhtar.dev/",
+    image: "https://ahmedmokhtar.dev/src/images/ahmed-mokhtar.jpg",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -46,7 +46,15 @@ module.exports = {
         },
       },
     },
-
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: process.env.GOOGLE_TAGMANAGER,
+        // Include GTM in development.
+        includeInDevelopment: true,
+      },
+    },
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-source-contentful",
       options: {
