@@ -26,6 +26,7 @@ import ReactIcon from "../images/technologies/reactjs.svg"
 import Redux from "../images/technologies/redux.svg"
 import Next from "../images/technologies/next.svg"
 import Gatsby from "../images/technologies/gatsby.svg"
+import GraphQL from "../images/technologies/graphQL.svg"
 import Express from "../images/technologies/express.svg"
 import ReactNative from "../images/technologies/reactnative.svg"
 import Node from "../images/technologies/node.svg"
@@ -180,9 +181,10 @@ const AboutPage = () => (
             <div className="box is-flex flex-wrap">
               <Techno Icon={Javascript} title="JavaScript" />
               <Techno Icon={ReactIcon} title="React" />
+              <Techno Icon={Redux} title="Redux" />
               <Techno Icon={Next} title="Next.js" />
               <Techno Icon={Gatsby} title="Gatsby" />
-              <Techno Icon={Redux} title="Redux" />
+              <Techno Icon={GraphQL} title="GraphQL" />
               <Techno Icon={ReactNative} title="React Native" />
               <Techno Icon={Express} title="Express.js" />
               <Techno Icon={Node} title="Node.js" />
