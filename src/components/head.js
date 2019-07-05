@@ -21,7 +21,6 @@ const Head = ({ title, location, children }) => {
   const siteTitle = data.site.siteMetadata.title
   const pageTitle = `${title ? `${title} ` : ""}${author} | ${siteTitle}`
   const ogUrl = location.href
-  console.log("Location: ", location)
   return (
     <Helmet title={pageTitle} defer={false}>
       <meta name="description" content={description} />
