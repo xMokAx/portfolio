@@ -42,6 +42,7 @@ const BlogPost = ({ data, pageContext }) => {
   } = data.contentfulBlogPost
   const { html, timeToRead } = body.childMarkdownRemark
   const { prev, next } = pageContext
+  const isPaginated = prev || next
   return (
     <Layout>
       <Head title={`${title} by`} />
@@ -88,25 +89,32 @@ const BlogPost = ({ data, pageContext }) => {
             role="navigation"
             aria-label="pagination"
           >
-            {prev ? (
-              <Link to={`/blog/${prev.slug}/`} className="pagination-previous">
-                &larr; Prev Post
-              </Link>
-            ) : (
-              <span className="pagination-previous" disabled>
-                &larr; Prev Post
-              </span>
-            )}
+            {isPaginated ? (
+              prev ? (
+                <Link
+                  to={`/blog/${prev.slug}/`}
+                  className="pagination-previous"
+                >
+                  &larr; Prev Post
+                </Link>
+              ) : (
+                <span className="pagination-previous" disabled>
+                  &larr; Prev Post
+                </span>
+              )
+            ) : null}
 
-            {next ? (
-              <Link to={`/blog/${next.slug}/`} className="pagination-next">
-                Next Post &rarr;
-              </Link>
-            ) : (
-              <span className="pagination-next" disabled>
-                Next Post &rarr;
-              </span>
-            )}
+            {isPaginated ? (
+              next ? (
+                <Link to={`/blog/${next.slug}/`} className="pagination-next">
+                  Next Post &rarr;
+                </Link>
+              ) : (
+                <span className="pagination-next" disabled>
+                  Next Post &rarr;
+                </span>
+              )
+            ) : null}
           </nav>
         </div>
       </section>
