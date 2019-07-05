@@ -62,5 +62,27 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Ahmed Mokhtar`,
+        short_name: `A.Mokhtar`,
+        description: `Ahmed Mokhtar Portfolio and Blog.`,
+        lang: `en`,
+        display: `standalone`,
+        icon: `src/images/logo.png`,
+        start_url: `/`,
+        background_color: `#00171F`,
+        theme_color: `#00A8E8`,
+      },
+    },
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        // develop: true, // Enable while using `gatsby develop`
+      },
+    },
   ],
 }

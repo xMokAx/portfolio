@@ -43,11 +43,6 @@ const Layout = props => {
       </aside>
       <main className="main-container is-flex-touch flex-vertical flex-justify-center flex-align-center">
         {props.children}
-        {/* <footer className="footer has-text-centered">
-          <p className="has-text-grey is-size-7">
-            Created by {data.site.siteMetadata.author}, © 2019
-          </p>
-        </footer> */}
       </main>
     </div>
   )
