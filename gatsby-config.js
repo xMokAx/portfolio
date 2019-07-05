@@ -5,7 +5,7 @@ module.exports = {
     description:
       "i'm a self-taught self-motivated front end web developer. I enjoy programming, solving problems and learning new technologies. I give a great attention to details. The sense of achievment is the thing that keeps me going and makes me happy the most.",
     siteUrl: "https://ahmedmokhtar.dev/",
-    image: "https://ahmedmokhtar.dev/static/img/og-logo.png",
+    image: "https://ahmedmokhtar.dev/img/og-logo.png",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
