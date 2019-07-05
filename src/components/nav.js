@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
-import FacebookIcon from "../images/social/facebook.svg"
-import TwitterIcon from "../images/social/twitter.svg"
+// import FacebookIcon from "../images/social/facebook.svg"
+// import TwitterIcon from "../images/social/twitter.svg"
 import GithubIcon from "../images/social/github-circle.svg"
 import LinkedinIcon from "../images/social/linkedin.svg"
 import Email from "../images/social/email.svg"
@@ -84,19 +84,19 @@ class Nav extends Component {
               <HomeIcon className="menu-icon" />
               Home
             </NavLink>
-            <NavLink to="/about" onClick={this.onNavLinkClick}>
+            <NavLink to="/about/" onClick={this.onNavLinkClick}>
               <AboutIcon className="menu-icon" />
               About
             </NavLink>
             <NavLink
-              to="/projects"
+              to="/projects/"
               onClick={this.onNavLinkClick}
               partiallyActive
             >
               <ProjectsIcon className="menu-icon" />
               Projects
             </NavLink>
-            <NavLink to="/blog" onClick={this.onNavLinkClick} partiallyActive>
+            <NavLink to="/blog/" onClick={this.onNavLinkClick} partiallyActive>
               <BlogIcon className="menu-icon" />
               Blog
             </NavLink>
@@ -121,7 +121,7 @@ class Nav extends Component {
             >
               <Email />
             </a>
-            <a
+            {/* <a
               href="https://twitter.com/A_Moka_"
               target="_blank"
               rel="noopener noreferrer"
@@ -129,7 +129,7 @@ class Nav extends Component {
               aria-label={`${author}'s twitter`}
             >
               <TwitterIcon />
-            </a>
+            </a> */}
             <a
               href="https://github.com/xMokAx"
               target="_blank"
@@ -140,7 +140,7 @@ class Nav extends Component {
               <GithubIcon />
             </a>
             <a
-              href=""
+              href="https://www.linkedin.com/in/ahmed-mokhtar-a363b818a/"
               target="_blank"
               rel="noopener noreferrer"
               className="contact shadow"
@@ -169,7 +169,7 @@ const NavBar = () => {
       file(relativePath: { eq: "ahmed-mokhtar.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 128, maxHeight: 128) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

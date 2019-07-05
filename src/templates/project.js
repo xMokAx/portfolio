@@ -14,7 +14,7 @@ export const query = graphql`
       featuredImage {
         description
         fluid {
-          ...GatsbyContentfulFluid_withWebp_noBase64
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       source
@@ -50,7 +50,7 @@ const Project = props => {
   return (
     <Layout>
       <Head title={`${title} by`} />
-      <Link className="button is-primary fixed-right-button" to="/projects">
+      <Link className="button is-primary fixed-right-button" to="/projects/">
         All Projects
       </Link>
       <section className="section">

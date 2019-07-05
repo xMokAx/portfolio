@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import Image from "gatsby-image"
 
 const ProjectCard = ({
@@ -17,13 +17,9 @@ const ProjectCard = ({
     featured && !showFeaturedOnly ? "has-text-link" : "has-text-primary"
   return (
     <article
-      onClick={() => {
-        navigate(`/projects/${slug}`)
-      }}
       className={`card translate-up ${
         featured && !showFeaturedOnly ? "is-featured" : ""
       }`}
-      style={{ cursor: "pointer" }}
     >
       <div className="card-image has-border-bottom">
         <Image
@@ -36,7 +32,7 @@ const ProjectCard = ({
         />
       </div>
       <div className="card-content">
-        <Link to={`/projects/${slug}`} className="is-underlined-hover">
+        <Link to={`/projects/${slug}/`} className="is-underlined-hover">
           <h2 className="title">{title}</h2>
         </Link>
         <h3 className="subtitle">{description}</h3>
@@ -69,7 +65,7 @@ const ProjectCard = ({
           </a>
         )}
         <Link
-          to={`/projects/${slug}`}
+          to={`/projects/${slug}/`}
           className={`card-footer-item ${footerLinkColor}`}
         >
           Read More

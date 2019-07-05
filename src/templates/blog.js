@@ -1,91 +1,71 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import Image from "gatsby-image"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Head from "../components/head"
-import TagsList from "../components/tagsList"
+import PostsRoll from "../components/postsRoll"
+import FeaturedTitle from "../components/featuredTitle"
+
+const Blog = ({ data, pageContext }) => {
+  const posts = data.allContentfulBlogPost.edges
+  const { currentPage, numPages } = pageContext
+  const isFirstPage = currentPage === 1
+  return (
+    <Layout>
+      <Head title={`${isFirstPage ? "" : `Page ${currentPage} | `}Blog of`} />
+      <section>
+        <FeaturedTitle title="Blog">
+          <p className="is-inline has-text-grey-lighter">
+            <span role="img" aria-label="Page">
+              📄
+            </span>{" "}
+            Page {currentPage}
+          </p>
+        </FeaturedTitle>
+        <PostsRoll
+          posts={posts}
+          paginationProps={{ currentPage, numPages, basePath: "/blog/" }}
+        />
+      </section>
+    </Layout>
+  )
+}
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
-      title
-      publishDate(formatString: "MMMM Do, YYYY")
-      tags {
-        name
-        slug
-      }
-      featuredImage {
-        title
-        description
-        fluid {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-      }
-      body {
-        childMarkdownRemark {
-          timeToRead
-          html
+  query($skip: Int!, $limit: Int!) {
+    allContentfulBlogPost(
+      sort: { fields: [publishDate], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      edges {
+        node {
+          id
+          title
+          description
+          featured
+          publishDate(formatString: "MMMM Do, YYYY")
+          tags {
+            name
+            slug
+          }
+          slug
+          featuredImage {
+            title
+            description
+            fixed(width: 100, height: 100) {
+              ...GatsbyContentfulFixed_withWebp
+            }
+          }
+          body {
+            childMarkdownRemark {
+              timeToRead
+            }
+          }
         }
       }
     }
   }
 `
-
-const Blog = props => {
-  const {
-    title,
-    publishDate,
-    body,
-    featuredImage,
-    tags,
-  } = props.data.contentfulBlogPost
-  const { html, timeToRead } = body.childMarkdownRemark
-
-  return (
-    <Layout>
-      <Head title={`${title} by`} />
-      <Link className="button is-primary fixed-right-button" to="/blog">
-        All Posts
-      </Link>
-      <section className="section">
-        <div className="container">
-          <article className="content">
-            <h1>{title}</h1>
-            {featuredImage && (
-              <Image
-                fluid={featuredImage.fluid}
-                alt={`${
-                  featuredImage.description
-                    ? featuredImage.description
-                    : featuredImage.title
-                }`}
-                className="has-shadow"
-                style={{ marginBottom: "16px" }}
-              />
-            )}
-            <TagsList tags={tags} />
-            <div className="is-flex">
-              <p>
-                <span role="img" aria-label="publish date">
-                  📅
-                </span>{" "}
-                {publishDate}
-              </p>
-              <span style={{ margin: "0 8px" }}>•</span>
-              <p>
-                <span role="img" aria-label="time to read">
-                  ⏱️
-                </span>{" "}
-                {timeToRead} min read
-              </p>
-            </div>
-            <div dangerouslySetInnerHTML={{ __html: html }}></div>
-          </article>
-        </div>
-      </section>
-    </Layout>
-  )
-}
 
 export default Blog

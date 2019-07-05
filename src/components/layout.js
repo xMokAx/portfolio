@@ -16,7 +16,7 @@ const Layout = props => {
       file(relativePath: { eq: "ahmed-mokhtar.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 512, maxHeight: 512) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

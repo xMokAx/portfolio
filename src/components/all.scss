@@ -151,6 +151,12 @@ $footer-padding: 1rem 1rem 1.5rem;
   padding-bottom: 48px;
 }
 
+.home-image {
+  width: 100%;
+  height: calc(100vh - 64px);
+  padding: 5vh 10vw;
+}
+
 .main-container>section {
   flex: 1 1 0;
   width: 100%;
@@ -222,11 +228,15 @@ a.shadow {
   fill: #fff;
 }
 
-.featured-title {
+.featured-title-container {
   position: sticky;
   top: 64px;
   padding: 16px;
   z-index: 1;
+}
+
+.featured-title {
+  margin-right: 12px;
 }
 
 .fixed-right-button {
@@ -271,6 +281,14 @@ a.shadow {
     padding-left: 280px;
   }
 
+  .home-image {
+    height: 100vh
+  }
+
+  .featured-title {
+    margin-right: 48px;
+  }
+
   .sidebar {
     width: 280px;
     height: 100vh;
@@ -285,7 +303,7 @@ a.shadow {
     display: none;
   }
 
-  .featured-title {
+  .featured-title-container {
     top: 0;
     padding: 24px;
   }
@@ -306,6 +324,14 @@ a.shadow {
 }
 
 @media only screen and (min-width: 769px) {
+  .home-image {
+    padding: 10vh 10vw;
+  }
+
+  .featured-title {
+    margin-right: 32px;
+  }
+
   .techno-icon {
     width: 64px;
     height: 64px;
@@ -353,6 +379,10 @@ a.shadow {
 }
 
 @media only screen and (max-width: 499px) {
+  .home-image {
+    padding: 5vh 5vw;
+  }
+
   .blog-card-header {
     display: flex;
     flex-direction: column;

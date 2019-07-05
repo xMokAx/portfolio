@@ -6,7 +6,9 @@ import Head from "../components/head"
 
 const NotFound = () => (
   <Layout>
-    <Head title="404 | Page Not Found" />
+    <Head>
+      <title>404 | Page Not Found</title>
+    </Head>
     <section
       className="is-flex flex-justify-center flex-align-center flex-vertical"
       style={{ height: "100%" }}

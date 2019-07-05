@@ -17,6 +17,7 @@
     "@contentful/rich-text-react-renderer": "^13.2.0",
     "bulma": "^0.7.5",
     "gatsby": "^2.8.6",
+    "gatsby-background-image": "^0.7.6",
     "gatsby-image": "^2.1.4",
     "gatsby-plugin-google-tagmanager": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",

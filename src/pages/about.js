@@ -47,7 +47,7 @@ const chartData = [
   { name: "HTML5", level: 90, color: "#E44D26" },
   { name: "CSS3", level: 80, color: "#42A5F5" },
   { name: "JS", level: 80, color: "#FFCA28" },
-  { name: "React", level: 85, color: "#00BCD4" },
+  { name: "React", level: 90, color: "#00BCD4" },
 ]
 
 const AboutPage = () => (
@@ -67,8 +67,8 @@ const AboutPage = () => (
             <p className="has-text-weight-semibold">
               I enjoy programming, solving problems and learning new
               technologies. I give a great attention to details. The sense of
-              achievment is the thing that keeps me going and makes me happy the
-              most.
+              achievement is the thing that keeps me going and makes me happy
+              the most.
             </p>
             <h3>Current status</h3>
             <p className="has-text-weight-semibold">

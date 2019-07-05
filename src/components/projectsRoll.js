@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import ProjectCard from "../components/projectCard"
 
@@ -16,7 +16,7 @@ const ProjectsRoll = ({ showFeaturedOnly }) => {
               title
               description
               fluid {
-                ...GatsbyContentfulFluid_withWebp_noBase64
+                ...GatsbyContentfulFluid_withWebp
               }
             }
             source
@@ -69,14 +69,6 @@ const ProjectsRoll = ({ showFeaturedOnly }) => {
               </div>
             )
           })}
-
-          {showFeaturedOnly && (
-            <div className="column is-12 is-flex flex-justify-center">
-              <Link className="button is-primary is-large" to="/projects">
-                All Projects
-              </Link>
-            </div>
-          )}
         </div>
       </div>
     </div>

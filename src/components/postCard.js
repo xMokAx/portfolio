@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import Image from "gatsby-image"
 
 import TagsList from "./tagsList"
@@ -11,18 +11,14 @@ const PostCard = ({
   slug,
   featuredImage,
   featured,
-  excerpt,
+  description,
   tags,
-  showFeaturedOnly,
+  homePage,
 }) => (
   <article
-    onClick={() => {
-      navigate(`/blog/${slug}`)
-    }}
     className={`box is-flex flex-vertical translate-up ${
-      featured && !showFeaturedOnly ? "is-featured" : ""
+      featured && !homePage ? "is-featured" : ""
     }`}
-    style={{ cursor: "pointer" }}
   >
     <div className="media blog-card-header">
       {featuredImage && (
@@ -40,7 +36,7 @@ const PostCard = ({
       )}
       <div className="media-content" style={{ paddingBottom: "8px" }}>
         <div className="content">
-          <Link to={`/blog/${slug}`} className="is-underlined-hover">
+          <Link to={`/blog/${slug}/`} className="is-underlined-hover">
             <h2 className="title is-size-5-mobile is-marginless">{title}</h2>
           </Link>
           <div>
@@ -62,8 +58,8 @@ const PostCard = ({
       </div>
     </div>
     <div className="content">
-      <p>{excerpt}</p>
-      <Link to={`/blog/${slug}`} className="button is-primary is-outlined">
+      <p>{description}</p>
+      <Link to={`/blog/${slug}/`} className="button is-primary is-outlined">
         Continue reading &rarr;
       </Link>
     </div>
