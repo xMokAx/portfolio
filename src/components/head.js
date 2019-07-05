@@ -22,7 +22,13 @@ const Head = ({ title, location, children }) => {
   const pageTitle = `${title ? `${title} ` : ""}${author} | ${siteTitle}`
   const ogUrl = location.href
   return (
-    <Helmet title={pageTitle} defer={false}>
+    <Helmet
+      htmlAttributes={{
+        lang: "en",
+      }}
+      title={pageTitle}
+      defer={false}
+    >
       <meta name="description" content={description} />
 
       {/* Open Graph / Facebook */}

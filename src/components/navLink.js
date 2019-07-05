@@ -11,7 +11,7 @@ const NavLink = ({ to, onClick, children, partiallyActive = false }) => (
     >
       <p
         className="is-flex flex-align-center"
-        style={{ width: "88px", margin: "auto" }}
+        style={{ width: "92px", margin: "auto" }}
       >
         {children}
       </p>

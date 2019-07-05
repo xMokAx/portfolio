@@ -100,10 +100,24 @@ class Nav extends Component {
               <BlogIcon className="menu-icon" />
               Blog
             </NavLink>
-            <NavLink to="/cv" onClick={this.onNavLinkClick}>
-              <CvIcon className="menu-icon" />
-              My CV
-            </NavLink>
+            <li>
+              {/* https://1drv.ms/b/s!AsXcHhRznIWpiiFpakzHkf9tBkOG */}
+              {/* https://www.dropbox.com/s/x4iv66w1ujiglde/ahmed-mokhtar-resume.pdf?dl=0 */}
+              <a
+                href="https://drive.google.com/file/d/1I4u9A2sYyqn8Xv0dZSagragJspo1zrsa/view?usp=sharing"
+                onClick={this.onNavLinkClick}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p
+                  className="is-flex flex-align-center"
+                  style={{ width: "92px", margin: "auto" }}
+                >
+                  <CvIcon className="menu-icon" />
+                  Resume
+                </p>
+              </a>
+            </li>
           </ul>
           <div className="contact-container is-flex flex-justify-center flex-align-center">
             {/* <a

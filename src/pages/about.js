@@ -42,6 +42,7 @@ import Aws from "../images/technologies/aws.svg"
 import Netlify from "../images/technologies/netlify.svg"
 import Heroku from "../images/technologies/heroku.svg"
 import GithubPages from "../images/technologies/githubpages.svg"
+import Contentful from "../images/technologies/contentful.svg"
 
 const chartData = [
   { name: "HTML5", level: 90, color: "#E44D26" },
@@ -207,6 +208,9 @@ const AboutPage = () => (
               <Techno Icon={Heroku} title="Heroku" />
               <Techno Icon={GithubPages} title="Github Pages" />
             </div>
+            <div className="box is-flex flex-wrap">
+              <Techno Icon={Contentful} title="Contentful" />
+            </div>
           </article>
         </div>
       </div>
@@ -239,7 +243,7 @@ const AboutPage = () => (
                   </li>
                   <li>
                     <span role="img" aria-label="Workout">
-                      🏋🏾‍♂️
+                      🏋️
                     </span>{" "}
                     Workout
                   </li>
