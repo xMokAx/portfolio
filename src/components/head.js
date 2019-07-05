@@ -39,6 +39,14 @@ const Head = ({ title, location, children }) => {
       <meta property="twitter:title" content={pageTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />
+
+      <meta name="msapplication-config" content="/browserconfig.xml" />
+      <link
+        rel="mask-icon"
+        href="/img/safari-pinned-tab.svg"
+        color="#00a8e8"
+      ></link>
+
       {children && children}
     </Helmet>
   )
