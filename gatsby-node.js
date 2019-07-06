@@ -3,7 +3,22 @@ const path = require("path")
 const postsPerPage = 6
 
 module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  createRedirect({
+    fromPath: "https://optimistic-brattain-d29c19.netlify.com/*",
+    toPath: "https://ahmedmokhtar.dev/:splat",
+    isPermanent: true,
+    force: true,
+  })
+
+  createRedirect({
+    fromPath: "http://optimistic-brattain-d29c19.netlify.com/*",
+    toPath: "https://ahmedmokhtar.dev/:splat",
+    isPermanent: true,
+    force: true,
+  })
+
   const blogTemplate = path.resolve("./src/templates/blog.js")
   const tagTemplate = path.resolve("./src/templates/tag.js")
   const blogPostTemplate = path.resolve("./src/templates/blogPost.js")

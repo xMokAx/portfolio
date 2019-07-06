@@ -83,5 +83,7 @@ module.exports = {
         // develop: true, // Enable while using `gatsby develop`
       },
     },
+    // Enable HTTP/2 push for critical assets.
+    "gatsby-plugin-netlify",
   ],
 }
