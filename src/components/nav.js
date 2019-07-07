@@ -154,7 +154,7 @@ class Nav extends Component {
               <GithubIcon />
             </a>
             <a
-              href="https://www.linkedin.com/in/ahmed-mokhtar-a363b818a/"
+              href="https://www.linkedin.com/in/ahmedmokhtar-dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="contact shadow"
