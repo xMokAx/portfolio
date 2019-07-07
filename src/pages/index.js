@@ -14,6 +14,7 @@ const IndexPage = ({ data }) => (
     <BackgroundImage
       fluid={data.file.childImageSharp.fluid}
       className="home-image"
+      backgroundColor="#00171f"
     >
       <div style={{ marginBottom: "10vh" }}>
         <h1 className="title is-size-2 is-size-1-widescreen is-size-3-mobile has-text-light">
