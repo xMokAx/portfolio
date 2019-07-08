@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
 // import FacebookIcon from "../images/social/facebook.svg"
-// import TwitterIcon from "../images/social/twitter.svg"
+import TwitterIcon from "../images/social/twitter.svg"
 import GithubIcon from "../images/social/github-circle.svg"
 import LinkedinIcon from "../images/social/linkedin.svg"
 import Email from "../images/social/email.svg"
@@ -101,10 +101,8 @@ class Nav extends Component {
               Blog
             </NavLink>
             <li>
-              {/* https://1drv.ms/b/s!AsXcHhRznIWpiiFpakzHkf9tBkOG */}
-              {/* https://www.dropbox.com/s/x4iv66w1ujiglde/ahmed-mokhtar-resume.pdf?dl=0 */}
               <a
-                href="https://drive.google.com/file/d/1I4u9A2sYyqn8Xv0dZSagragJspo1zrsa/view?usp=sharing"
+                href="https://drive.google.com/file/d/1BtsZn2rD4D1hogeH9uF8H3Fcbbhy9nBB/view?usp=sharing"
                 onClick={this.onNavLinkClick}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -135,15 +133,15 @@ class Nav extends Component {
             >
               <Email />
             </a>
-            {/* <a
-              href="https://twitter.com/A_Moka_"
+            <a
+              href="https://twitter.com/ahmedmokhtardev"
               target="_blank"
               rel="noopener noreferrer"
               className="contact shadow"
               aria-label={`${author}'s twitter`}
             >
               <TwitterIcon />
-            </a> */}
+            </a>
             <a
               href="https://github.com/xMokAx"
               target="_blank"
