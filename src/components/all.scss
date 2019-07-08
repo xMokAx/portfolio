@@ -157,6 +157,14 @@ $footer-padding: 1rem 1rem 1.5rem;
   padding: 5vh 10vw;
 }
 
+.home-title {
+  font-size: calc(3vh + 3vw);
+}
+
+.home-subtitle {
+  font-size: calc(2vh + 2vw);
+}
+
 .main-container>section {
   flex: 1 1 0;
   width: 100%;

@@ -17,10 +17,8 @@ const IndexPage = ({ data }) => (
       backgroundColor="#00171f"
     >
       <div style={{ marginBottom: "10vh" }}>
-        <h1 className="title is-size-2 is-size-1-widescreen is-size-3-mobile has-text-light">
-          Hi, I'm Ahmed,
-        </h1>
-        <h2 className="subtitle is-size-3 is-size-2-widescreen is-size-4-mobile has-text-grey-lighter is-capitalized">
+        <h1 className="title home-title has-text-light">Hi, I'm Ahmed,</h1>
+        <h2 className="subtitle home-subtitle has-text-grey-lighter is-capitalized">
           a self-taught self-motivated{" "}
           <strong className="has-text-grey-lighter">
             front end web developer
@@ -28,16 +26,22 @@ const IndexPage = ({ data }) => (
           .
         </h2>
       </div>
-      <h2 className="title is-size-2 is-size-1-widescreen is-size-3-mobile has-text-grey-lighter">
-        <span className="has-text-primary">F</span>ollow
-        <br />
-        <span className="has-text-primary">O</span>ne
-        <br />
-        <span className="has-text-primary">C</span>ourse
-        <br />
-        <span className="has-text-primary">U</span>ntil
-        <br />
-        <span className="has-text-primary">S</span>uccess
+      <h2 className="title home-subtitle has-text-grey-lighter is-flex flex-vertical">
+        <span>
+          <span className="has-text-primary">F</span>ollow
+        </span>
+        <span>
+          <span className="has-text-primary">O</span>ne
+        </span>
+        <span>
+          <span className="has-text-primary">C</span>ourse
+        </span>
+        <span>
+          <span className="has-text-primary">U</span>ntil
+        </span>
+        <span>
+          <span className="has-text-primary">S</span>uccess
+        </span>
       </h2>
     </BackgroundImage>
     <section>
