@@ -13,8 +13,6 @@ const ProjectCard = ({
   featured,
   showFeaturedOnly,
 }) => {
-  const footerLinkColor =
-    featured && !showFeaturedOnly ? "has-text-link" : "has-text-primary"
   return (
     <article
       className={`card translate-up ${
@@ -49,7 +47,7 @@ const ProjectCard = ({
             href={website}
             target="_blank"
             rel="noopener noreferrer"
-            className={`card-footer-item ${footerLinkColor}`}
+            className="card-footer-item"
           >
             View Online
           </a>
@@ -59,15 +57,12 @@ const ProjectCard = ({
             href={source}
             target="_blank"
             rel="noopener noreferrer"
-            className={`card-footer-item ${footerLinkColor}`}
+            className="card-footer-item"
           >
             Source
           </a>
         )}
-        <Link
-          to={`/projects/${slug}/`}
-          className={`card-footer-item ${footerLinkColor}`}
-        >
+        <Link to={`/projects/${slug}/`} className="card-footer-item">
           Read More
         </Link>
       </footer>
