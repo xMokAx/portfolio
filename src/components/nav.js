@@ -12,6 +12,7 @@ import AboutIcon from "../images/menu/about.svg"
 import ProjectsIcon from "../images/menu/projects.svg"
 import BlogIcon from "../images/menu/blog.svg"
 import CvIcon from "../images/menu/cv.svg"
+import Logo from "../images/logo.svg"
 
 import NavLink from "./navLink"
 
@@ -161,8 +162,14 @@ class Nav extends Component {
               <LinkedinIcon />
             </a>
           </div>
-          <p className="has-text-grey is-size-7 has-text-centered">
-            Created by {author}, © 2019
+          <p
+            className="is-flex flex-align-center flex-justify-center has-text-grey-light has-text-centered"
+            style={{ fontSize: "14px" }}
+          >
+            <Logo
+              style={{ width: "32px", height: "32px", marginRight: "4px" }}
+            />
+            © 2019 {author}.
           </p>
         </div>
       </nav>
