@@ -13,7 +13,7 @@ import {
 import Layout from "../components/layout"
 import Head from "../components/head"
 import FeaturedTitle from "../components/featuredTitle"
-import Techno from "../components/techno"
+import TechnoList from "../components/technoList"
 
 import Html from "../images/technologies/html.svg"
 import Css from "../images/technologies/css.svg"
@@ -79,7 +79,7 @@ const AboutPage = () => (
             </p>
             <h3>Current work</h3>
             <p className="has-text-weight-semibold">
-              <em>I'm currently building a website for a small company.</em>
+              <em>Improving this website.</em>
             </p>
             <h3>Todos</h3>
             <ul>
@@ -169,48 +169,54 @@ const AboutPage = () => (
               </ResponsiveContainer>
             </div>
             <h3>All</h3>
-            <div className="box is-flex flex-wrap">
-              <Techno Icon={Html} title="HTML5" />
-            </div>
-            <div className="box is-flex flex-wrap">
-              <Techno Icon={Css} title="CSS3" />
-              <Techno Icon={Sass} title="Sass" />
-              <Techno Icon={Bulma} title="Bulma" />
-              <Techno Icon={Materialize} title="Materialize" />
-              <Techno Icon={Bootstrap} title="Bootstrap" />
-            </div>
-            <div className="box is-flex flex-wrap">
-              <Techno Icon={Javascript} title="JavaScript" />
-              <Techno Icon={ReactIcon} title="React" />
-              <Techno Icon={Redux} title="Redux" />
-              <Techno Icon={Next} title="Next.js" />
-              <Techno Icon={Gatsby} title="Gatsby" />
-              <Techno Icon={GraphQL} title="GraphQL" />
-              <Techno Icon={ReactNative} title="React Native" />
-              <Techno Icon={Express} title="Express.js" />
-              <Techno Icon={Node} title="Node.js" />
-              <Techno Icon={JQuery} title="jQuery" />
-            </div>
-            <div className="box is-flex flex-wrap">
-              <Techno Icon={Redis} title="Redis" />
-              <Techno Icon={Firebase} title="Firebase" />
-            </div>
-            <div className="box is-flex flex-wrap">
-              <Techno Icon={Git} title="Git" />
-              <Techno Icon={Github} title="Github" />
-              <Techno Icon={Webpack} title="Webpack" />
-              <Techno Icon={Babel} title="Babel" />
-              <Techno Icon={Gulp} title="Gulp" />
-            </div>
-            <div className="box is-flex flex-wrap">
-              <Techno Icon={Aws} title="Aws" />
-              <Techno Icon={Netlify} title="Netlify" />
-              <Techno Icon={Heroku} title="Heroku" />
-              <Techno Icon={GithubPages} title="Github Pages" />
-            </div>
-            <div className="box is-flex flex-wrap">
-              <Techno Icon={Contentful} title="Contentful" />
-            </div>
+            <TechnoList icons={[{ Icon: Html, title: "HTML5" }]} />
+            <TechnoList
+              icons={[
+                { Icon: Css, title: "CSS3" },
+                { Icon: Sass, title: "Sass" },
+                { Icon: Bulma, title: "Bulma" },
+                { Icon: Materialize, title: "Materialize" },
+                { Icon: Bootstrap, title: "Bootstrap" },
+              ]}
+            />
+            <TechnoList
+              icons={[
+                { Icon: Javascript, title: "Javascript" },
+                { Icon: ReactIcon, title: "React" },
+                { Icon: Redux, title: "Redux" },
+                { Icon: Next, title: "Next.js" },
+                { Icon: Gatsby, title: "Gatsby" },
+                { Icon: GraphQL, title: "GraphQL" },
+                { Icon: ReactNative, title: "React Native" },
+                { Icon: Express, title: "Express.js" },
+                { Icon: Node, title: "Node.js" },
+                { Icon: JQuery, title: "jQuery" },
+              ]}
+            />
+            <TechnoList
+              icons={[
+                { Icon: Redis, title: "Redis" },
+                { Icon: Firebase, title: "Firebase" },
+              ]}
+            />
+            <TechnoList
+              icons={[
+                { Icon: Git, title: "Git" },
+                { Icon: Github, title: "Github" },
+                { Icon: Webpack, title: "Webpack" },
+                { Icon: Babel, title: "Babel" },
+                { Icon: Gulp, title: "Gulp" },
+              ]}
+            />
+            <TechnoList
+              icons={[
+                { Icon: Aws, title: "AWS" },
+                { Icon: Netlify, title: "Netlify" },
+                { Icon: Heroku, title: "Heroku" },
+                { Icon: GithubPages, title: "Github Pages" },
+              ]}
+            />
+            <TechnoList icons={[{ Icon: Contentful, title: "Contentful" }]} />
           </article>
         </div>
       </div>
