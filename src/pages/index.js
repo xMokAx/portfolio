@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
 import Layout from "../components/layout"
@@ -47,20 +47,10 @@ const IndexPage = ({ data }) => (
     <section>
       <FeaturedTitle title="Featured Projects" />
       <ProjectsRoll showFeaturedOnly />
-      <div className="column is-12 is-flex flex-justify-center">
-        <Link className="button is-primary is-large" to="/projects/">
-          All Projects
-        </Link>
-      </div>
     </section>
     <section>
       <FeaturedTitle title="Featured Posts" />
       <PostsRoll posts={data.allContentfulBlogPost.edges} homePage />
-      <div className="column is-12 is-flex flex-justify-center">
-        <Link className="button is-primary is-large" to="/blog/">
-          All Posts
-        </Link>
-      </div>
     </section>
   </Layout>
 )

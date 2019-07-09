@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 import PostCard from "../components/postCard"
 import Pagination from "../components/pagination"
@@ -38,16 +39,21 @@ const PostsRoll = ({ homePage, posts, paginationProps }) => {
               </div>
             )
           })}
-          {paginationProps && (
-            <div className="column is-12">
-              <Pagination
-                currentPage={paginationProps.currentPage}
-                numPages={paginationProps.numPages}
-                basePath={paginationProps.basePath}
-              />
-            </div>
-          )}
         </div>
+        {homePage && (
+          <div className="column is-12 is-flex flex-justify-center">
+            <Link className="button is-primary is-large" to="/blog/">
+              All Posts
+            </Link>
+          </div>
+        )}
+        {paginationProps && (
+          <Pagination
+            currentPage={paginationProps.currentPage}
+            numPages={paginationProps.numPages}
+            basePath={paginationProps.basePath}
+          />
+        )}
       </div>
     </div>
   )

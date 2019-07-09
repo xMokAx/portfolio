@@ -89,8 +89,8 @@ const BlogPost = ({ data, pageContext }) => {
             role="navigation"
             aria-label="pagination"
           >
-            {isPaginated ? (
-              prev ? (
+            {isPaginated &&
+              (prev ? (
                 <Link
                   to={`/blog/${prev.slug}/`}
                   className="pagination-previous"
@@ -101,11 +101,10 @@ const BlogPost = ({ data, pageContext }) => {
                 <span className="pagination-previous" disabled>
                   &larr; Prev Post
                 </span>
-              )
-            ) : null}
+              ))}
 
-            {isPaginated ? (
-              next ? (
+            {isPaginated &&
+              (next ? (
                 <Link to={`/blog/${next.slug}/`} className="pagination-next">
                   Next Post &rarr;
                 </Link>
@@ -113,8 +112,7 @@ const BlogPost = ({ data, pageContext }) => {
                 <span className="pagination-next" disabled>
                   Next Post &rarr;
                 </span>
-              )
-            ) : null}
+              ))}
           </nav>
         </div>
       </section>

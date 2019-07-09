@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 import ProjectCard from "../components/projectCard"
 
@@ -32,6 +32,17 @@ const ProjectsRoll = ({ showFeaturedOnly }) => {
   return (
     <div className="section">
       <div className="container">
+        {!showFeaturedOnly && (
+          <p style={{ marginBottom: "24px" }}>
+            I made many projects during my learning journey here are some of
+            them that show my gradual progress from a simple HTML template to
+            this website:
+            <br />
+            Mobile-First Responsive HTML Template &rarr; Native JavaScript APPs
+            &rarr; PWAs &rarr; React APPs &rarr; Server Side Rendered (Next.js)
+            React APP &rarr; React Native APP &rarr; Static (Gatsby) React APP.
+          </p>
+        )}
         <div className="columns is-centered is-multiline">
           {data.allContentfulProject.edges.map(({ node: project }) => {
             const {
@@ -70,6 +81,13 @@ const ProjectsRoll = ({ showFeaturedOnly }) => {
             )
           })}
         </div>
+        {showFeaturedOnly && (
+          <div className="column is-12 is-flex flex-justify-center">
+            <Link className="button is-primary is-large" to="/projects/">
+              All Projects
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )
