@@ -3,9 +3,9 @@ module.exports = {
     title: "Front End Developer",
     author: "Ahmed Mokhtar",
     description:
-      "i'm a self-taught self-motivated front end web developer. I enjoy programming, solving problems and learning new technologies. I give a great attention to details. The sense of achievment is the thing that keeps me going and makes me happy the most.",
+      "A self-taught self-motivated front-end web developer. I enjoy programming, solving problems and learning new technologies. I give a great attention to details. The sense of achievment is the thing that keeps me going and makes me happy the most.",
     siteUrl: "https://ahmedmokhtar.dev/",
-    image: "https://ahmedmokhtar.dev/img/og-logo.png",
+    image: "https://ahmedmokhtar.dev/img/og-image.jpg",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
