@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import Image from "gatsby-image"
 
 import TagsList from "./tagsList"
@@ -16,9 +16,14 @@ const PostCard = ({
   homePage,
 }) => (
   <article
-    className={`box is-flex flex-vertical translate-up ${
+    className={`box is-flex flex-vertical translate-up cursor-pointer ${
       featured && !homePage ? "is-featured" : ""
     }`}
+    onClick={e => {
+      if (e.target.tagName !== "A") {
+        navigate(`/blog/${slug}/`)
+      }
+    }}
   >
     <div className="media blog-card-header">
       {featuredImage && (

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import Image from "gatsby-image"
 
 const ProjectCard = ({
@@ -15,9 +15,14 @@ const ProjectCard = ({
 }) => {
   return (
     <article
-      className={`card translate-up ${
+      className={`card translate-up cursor-pointer ${
         featured && !showFeaturedOnly ? "is-featured" : ""
       }`}
+      onClick={e => {
+        if (e.target.tagName !== "A") {
+          navigate(`/projects/${slug}/`)
+        }
+      }}
     >
       <div className="card-image has-border-bottom">
         <Image
