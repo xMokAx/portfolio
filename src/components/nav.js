@@ -4,7 +4,7 @@ import Image from "gatsby-image"
 
 // import FacebookIcon from "../images/social/facebook.svg"
 import TwitterIcon from "../images/social/twitter.svg"
-import GithubIcon from "../images/social/github-circle.svg"
+import GithubIcon from "../images/social/github.svg"
 import LinkedinIcon from "../images/social/linkedin.svg"
 import Email from "../images/social/email.svg"
 import HomeIcon from "../images/menu/home.svg"
@@ -123,13 +123,13 @@ class Nav extends Component {
             href="https://www.facebook.com/ahmedmokka"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact shadow"
+            className="contact fb shadow"
             aria-label={`${author}'s facebook`}
           >
             <FacebookIcon /> */}
             <a
               href="mailto:ahmedmokhtar11j@gmail.com"
-              className="contact shadow"
+              className="contact email shadow"
               aria-label={`${author}'s email`}
             >
               <Email />
@@ -138,7 +138,7 @@ class Nav extends Component {
               href="https://twitter.com/ahmedmokhtardev"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact shadow"
+              className="contact tw shadow"
               aria-label={`${author}'s twitter`}
             >
               <TwitterIcon />
@@ -147,7 +147,7 @@ class Nav extends Component {
               href="https://github.com/xMokAx"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact shadow"
+              className="contact gh shadow"
               aria-label={`${author}'s github`}
             >
               <GithubIcon />
@@ -156,14 +156,14 @@ class Nav extends Component {
               href="https://www.linkedin.com/in/ahmedmokhtar-dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact shadow"
+              className="contact in shadow"
               aria-label={`${author}'s linkedin`}
             >
               <LinkedinIcon />
             </a>
           </div>
           <p
-            className="is-flex flex-align-center flex-justify-center has-text-grey-light has-text-centered"
+            className="is-flex flex-align-center flex-justify-center has-text-grey has-text-centered"
             style={{ fontSize: "14px" }}
           >
             <Logo
