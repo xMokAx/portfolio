@@ -166,10 +166,7 @@ class Nav extends Component {
             className="is-flex flex-align-center flex-justify-center has-text-grey has-text-centered"
             style={{ fontSize: "14px" }}
           >
-            <Logo
-              style={{ width: "32px", height: "32px", marginRight: "4px" }}
-            />
-            © 2019 {author}.
+            <Logo className="logo" />© 2019 {author}.
           </p>
         </div>
       </nav>

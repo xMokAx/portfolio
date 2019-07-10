@@ -4,6 +4,12 @@
 
 /* grey-light: #b5b5b5  grey-lighter: #dbdbdb   white-ter: #f5f5f5  white-bis: #fafafa  white:#fff */
 
+// fb #4267b2
+// gmail #d93025
+// github #24292E
+// linkedin #0073b0
+// titter #1da1f2
+
 $vivid-cerulean: #00A8E8;
 $vivid-cerulean-inverted: #fff;
 $rich-black:#00171F;
@@ -140,6 +146,10 @@ $footer-padding: 1rem 1rem 1.5rem;
   border-bottom: rgba(0, 23, 31, 0.1) solid 1px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 // layout
 .wrapper {
   display: flex;
@@ -175,10 +185,11 @@ $footer-padding: 1rem 1rem 1.5rem;
 }
 
 .profile-image {
-  border: 2px solid #363636;
+  border: 3px solid $primary;
   width: 128px;
   height: 128px;
   margin-bottom: 16px;
+  box-sizing: content-box
 }
 
 .nav-container {
@@ -195,23 +206,25 @@ $footer-padding: 1rem 1rem 1.5rem;
   margin-left: 16px;
 }
 
+.logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+}
+
 .contact-container {
   padding: 24px;
 }
 
 .contact {
   margin: 0 8px;
-  width: 32px;
-  height: 32px;
-}
-
-a.shadow {
+  width: 24px;
+  height: 24px;
+  fill: #7a7a7a;
 
   &:hover,
   &:focus {
-    >svg {
-      box-shadow: 0 0 1px 7px rgba($primary, 0.3)
-    }
+    fill: $primary
   }
 }
 
