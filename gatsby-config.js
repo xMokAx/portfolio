@@ -71,7 +71,7 @@ module.exports = {
         display: `standalone`,
         icon: `src/images/logo.png`,
         start_url: `/`,
-        background_color: `#00171F`,
+        background_color: `#fff`,
         theme_color: `#00A8E8`,
       },
     },
@@ -85,5 +85,13 @@ module.exports = {
     },
     // Enable HTTP/2 push for critical assets.
     "gatsby-plugin-netlify",
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Lato:400,600,700"],
+        },
+      },
+    },
   ],
 }
