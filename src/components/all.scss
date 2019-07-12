@@ -138,8 +138,10 @@ $footer-padding: 1rem 1rem 1.5rem;
   text-decoration: underline;
 }
 
-.is-underlined-hover {
-  &:hover {
+.is-underlined-link {
+
+  &:hover,
+  &:focus {
     text-decoration: underline;
   }
 }

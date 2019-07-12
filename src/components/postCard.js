@@ -41,7 +41,7 @@ const PostCard = ({
       )}
       <div className="media-content" style={{ paddingBottom: "8px" }}>
         <div className="content">
-          <Link to={`/blog/${slug}/`} className="is-underlined-hover">
+          <Link to={`/blog/${slug}/`} className="is-underlined-link">
             <h2 className="title is-size-5-mobile is-marginless">{title}</h2>
           </Link>
           <div>
