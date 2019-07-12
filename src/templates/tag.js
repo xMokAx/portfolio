@@ -62,7 +62,11 @@ const Tag = ({ data, pageContext }) => {
         </FeaturedTitle>
         <PostsRoll
           posts={posts.slice(skip, limit * currentPage)}
-          paginationProps={{ currentPage, numPages, basePath: `/tag/${slug}/` }}
+          paginationProps={{
+            currentPage,
+            numPages,
+            basePath: `/blog/tag/${slug}/`,
+          }}
         />
       </section>
     </Layout>

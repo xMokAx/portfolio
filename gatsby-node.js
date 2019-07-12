@@ -80,7 +80,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const totalPosts = tag.blog_post !== null ? tag.blog_post.length : 0
     const numPages = Math.ceil(totalPosts / postsPerPage)
     Array.from({ length: numPages }).forEach(async (_, i) => {
-      const path = i === 0 ? `/tag/${tag.slug}/` : `/tag/${tag.slug}/${i + 1}/`
+      const path =
+        i === 0 ? `/blog/tag/${tag.slug}/` : `/blog/tag/${tag.slug}/${i + 1}/`
       await createPage({
         path,
         component: tagTemplate,
