@@ -11,6 +11,7 @@ const Layout = props => {
       site {
         siteMetadata {
           author
+          title
         }
       }
       file(relativePath: { eq: "ahmed-mokhtar.jpg" }) {
@@ -36,7 +37,7 @@ const Layout = props => {
             {data.site.siteMetadata.author}
           </h1>
           <h2 className="subtitle has-text-grey-lighter">
-            Front End Developer
+            {data.site.siteMetadata.title}
           </h2>
         </div>
         <Nav />

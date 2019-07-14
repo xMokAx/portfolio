@@ -16,6 +16,9 @@ export const query = graphql`
         fluid {
           ...GatsbyContentfulFluid_withWebp
         }
+        ogImage: fixed(width: 1200, height: 628) {
+          src
+        }
       }
       source
       website
@@ -23,6 +26,9 @@ export const query = graphql`
       body {
         json
       }
+      publishDateISO: publishDate
+      createdAtISO: createdAt
+      updatedAtISO: updatedAt
     }
   }
 `
@@ -49,7 +55,11 @@ const Project = props => {
 
   return (
     <Layout>
-      <Head title={`${title} by`} />
+      <Head
+        customTitle={`${title} by`}
+        project={props.data.contentfulProject}
+        pageType="project"
+      />
       <Link className="button is-primary fixed-right-button" to="/projects/">
         All Projects
       </Link>

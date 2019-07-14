@@ -53,7 +53,7 @@ const chartData = [
 
 const AboutPage = () => (
   <Layout>
-    <Head title="About" />
+    <Head customTitle="About" pageType="about" />
     <section>
       <FeaturedTitle title="About me" />
       <div className="section">

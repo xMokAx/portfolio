@@ -11,6 +11,10 @@ export const query = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
+      updatedAt(formatString: "MMMM Do, YYYY")
+      publishDateISO: publishDate
+      createdAtISO: createdAt
+      updatedAtISO: updatedAt
       tags {
         name
         slug
@@ -21,9 +25,15 @@ export const query = graphql`
         fluid {
           ...GatsbyContentfulFluid_withWebp
         }
+        ogImage: fixed(width: 1200, height: 628) {
+          src
+        }
       }
       body {
         childMarkdownRemark {
+          wordCount {
+            words
+          }
           timeToRead
           html
         }
@@ -45,7 +55,11 @@ const BlogPost = ({ data, pageContext }) => {
   const isPaginated = prev || next
   return (
     <Layout>
-      <Head title={`${title} by`} />
+      <Head
+        customTitle={`${title} by`}
+        pageType="blogPost"
+        post={data.contentfulBlogPost}
+      />
       <Link className="button is-primary fixed-right-button" to="/blog/">
         All Posts
       </Link>

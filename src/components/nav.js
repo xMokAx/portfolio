@@ -38,7 +38,10 @@ class Nav extends Component {
   render() {
     const author = this.props.data.site.siteMetadata.author
     return (
-      <nav className="nav-container has-background-black is-flex flex-vertical">
+      <nav
+        id="#header"
+        className="nav-container has-background-black is-flex flex-vertical"
+      >
         <div className="nav-bar is-flex flex-justify-center flex-align-center is-hidden-desktop">
           <Link to="/">
             <Image
@@ -129,7 +132,7 @@ class Nav extends Component {
             <FacebookIcon /> */}
             <a
               href="mailto:ahmedmokhtar11j@gmail.com"
-              className="contact email shadow"
+              className="contact shadow"
               aria-label={`${author}'s email`}
             >
               <Email />
@@ -138,7 +141,7 @@ class Nav extends Component {
               href="https://twitter.com/ahmedmokhtardev"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact tw shadow"
+              className="contact shadow"
               aria-label={`${author}'s twitter`}
             >
               <TwitterIcon />
@@ -147,7 +150,7 @@ class Nav extends Component {
               href="https://github.com/xMokAx"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact gh shadow"
+              className="contact shadow"
               aria-label={`${author}'s github`}
             >
               <GithubIcon />
@@ -156,18 +159,20 @@ class Nav extends Component {
               href="https://www.linkedin.com/in/ahmedmokhtar-dev/"
               target="_blank"
               rel="noopener noreferrer"
-              className="contact in shadow"
+              className="contact shadow"
               aria-label={`${author}'s linkedin`}
             >
               <LinkedinIcon />
             </a>
           </div>
-          <p
-            className="is-flex flex-align-center flex-justify-center has-text-grey has-text-centered"
-            style={{ fontSize: "14px" }}
-          >
-            <Logo className="logo" />© 2019 {author}.
-          </p>
+          <div id="#footer">
+            <p
+              className="is-flex flex-align-center flex-justify-center has-text-grey has-text-centered"
+              style={{ fontSize: "14px" }}
+            >
+              <Logo className="logo" />© 2019 {author}.
+            </p>
+          </div>
         </div>
       </nav>
     )

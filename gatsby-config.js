@@ -1,11 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: "Front End Developer",
+    title: "Front-End Developer",
     author: "Ahmed Mokhtar",
+    altAuthor: "A.Mokhtar",
     description:
-      "A self-taught self-motivated front-end web developer. I enjoy programming, solving problems and learning new technologies. I give a great attention to details. The sense of achievment is the thing that keeps me going and makes me happy the most.",
+      "Personal website of Ahmed Mokhtar. A self-taught self-motivated Front-End developer. He enjoys programming, solving problems and learning new technologies. He gives a great attention to details. The sense of achievment is the thing that keeps him going and makes him happy the most.",
+    myDescription:
+      "Ahmed Mokhtar is a self-taught self-motivated Front-End developer. He enjoys programming, solving problems and learning new technologies. He gives a great attention to details. The sense of achievment is the thing that keeps him going and makes him happy the most.",
+    shortDescription: "Self-taught self-motivated Front-End developer",
     siteUrl: "https://ahmedmokhtar.dev/",
     image: "https://ahmedmokhtar.dev/img/og-image.jpg",
+    schemaImage: "https://ahmedmokhtar.dev/img/ahmed-mokhtar.jpg",
+    logo: "https://ahmedmokhtar.dev/img/logo.png",
+    email: "ahmedmokhtar11j@gmail.com",
+    contact: [
+      "https://github.com/xMokAx",
+      "https://www.linkedin.com/in/ahmedmokhtar-dev/",
+      "https://twitter.com/ahmedmokhtardev",
+      "https://www.facebook.com/ahmedmokka",
+    ],
   },
   plugins: [
     "gatsby-plugin-react-helmet",

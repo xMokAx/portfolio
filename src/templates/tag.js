@@ -47,9 +47,12 @@ const Tag = ({ data, pageContext }) => {
   return (
     <Layout>
       <Head
-        title={`Tag: ${name}${
+        customTitle={`Tag: ${name}${
           isFirstPage ? "" : ` | Page ${currentPage}`
         } | Blog of`}
+        pageType="tag"
+        tag={name}
+        posts={posts.slice(skip, limit * currentPage)}
       />
       <section>
         <FeaturedTitle title={name}>

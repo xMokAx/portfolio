@@ -11,12 +11,12 @@ const ProjectCard = ({
   slug,
   featuredImage,
   featured,
-  showFeaturedOnly,
+  homePage,
 }) => {
   return (
     <article
       className={`card translate-up cursor-pointer ${
-        featured && !showFeaturedOnly ? "is-featured" : ""
+        featured && !homePage ? "is-featured" : ""
       }`}
       onClick={e => {
         if (e.target.tagName !== "A") {

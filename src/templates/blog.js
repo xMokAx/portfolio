@@ -6,31 +6,6 @@ import Head from "../components/head"
 import PostsRoll from "../components/postsRoll"
 import FeaturedTitle from "../components/featuredTitle"
 
-const Blog = ({ data, pageContext }) => {
-  const posts = data.allContentfulBlogPost.edges
-  const { currentPage, numPages } = pageContext
-  const isFirstPage = currentPage === 1
-  return (
-    <Layout>
-      <Head title={`${isFirstPage ? "" : `Page ${currentPage} | `}Blog of`} />
-      <section>
-        <FeaturedTitle title="Blog">
-          <p className="is-inline has-text-grey-lighter">
-            <span role="img" aria-label="Page">
-              📄
-            </span>{" "}
-            Page {currentPage}
-          </p>
-        </FeaturedTitle>
-        <PostsRoll
-          posts={posts}
-          paginationProps={{ currentPage, numPages, basePath: "/blog/" }}
-        />
-      </section>
-    </Layout>
-  )
-}
-
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
     allContentfulBlogPost(
@@ -67,5 +42,34 @@ export const query = graphql`
     }
   }
 `
+
+const Blog = ({ data, pageContext }) => {
+  const posts = data.allContentfulBlogPost.edges
+  const { currentPage, numPages } = pageContext
+  const isFirstPage = currentPage === 1
+  return (
+    <Layout>
+      <Head
+        customTitle={`${isFirstPage ? "" : `Page ${currentPage} | `}Blog of`}
+        posts={posts}
+        pageType="blog"
+      />
+      <section>
+        <FeaturedTitle title="Blog">
+          <p className="is-inline has-text-grey-lighter">
+            <span role="img" aria-label="Page">
+              📄
+            </span>{" "}
+            Page {currentPage}
+          </p>
+        </FeaturedTitle>
+        <PostsRoll
+          posts={posts}
+          paginationProps={{ currentPage, numPages, basePath: "/blog/" }}
+        />
+      </section>
+    </Layout>
+  )
+}
 
 export default Blog
