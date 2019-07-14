@@ -34,7 +34,7 @@ const Head = ({
       }
     }
   `)
-  console.log("path: ", location.pathname)
+
   const {
     title,
     author,
@@ -660,8 +660,6 @@ const Head = ({
       },
     })
   }
-
-  console.log(schemaJSON)
 
   return (
     <Helmet
