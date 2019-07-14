@@ -4,9 +4,9 @@ module.exports = {
     author: "Ahmed Mokhtar",
     altAuthor: "A.Mokhtar",
     description:
-      "Personal website of Ahmed Mokhtar. A self-taught self-motivated Front-End developer. He enjoys programming, solving problems and learning new technologies. He gives a great attention to details. The sense of achievment is the thing that keeps him going and makes him happy the most.",
+      "Personal website of Ahmed Mokhtar. A self-taught self-motivated Front-End developer. He enjoys programming, solving problems and learning new technologies. He gives a great attention to details. The sense of achievement is the thing that keeps him going and makes him happy the most.",
     myDescription:
-      "Ahmed Mokhtar is a self-taught self-motivated Front-End developer. He enjoys programming, solving problems and learning new technologies. He gives a great attention to details. The sense of achievment is the thing that keeps him going and makes him happy the most.",
+      "Ahmed Mokhtar is a self-taught self-motivated Front-End developer. He enjoys programming, solving problems and learning new technologies. He gives a great attention to details. The sense of achievement is the thing that keeps him going and makes him happy the most.",
     shortDescription: "Self-taught self-motivated Front-End developer",
     siteUrl: "https://ahmedmokhtar.dev/",
     image: "https://ahmedmokhtar.dev/img/og-image.jpg",
