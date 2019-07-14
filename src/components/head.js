@@ -54,6 +54,7 @@ const Head = ({
   }${author} | ${title}`
   const ogUrl = location.href
   let ogImage = image
+  let ogDescription = description
 
   const schemaJSON = [
     {
@@ -279,6 +280,7 @@ const Head = ({
       // }
     )
   } else if (pageType === "about") {
+    ogDescription = myDescription
     schemaJSON.push({
       "@context": "http://schema.org",
       "@type": "AboutPage",
@@ -332,6 +334,8 @@ const Head = ({
       },
     })
   } else if (pageType === "projects") {
+    ogDescription =
+      "Here you can find some of the projects made by Ahmed Mokhtar using the latest technologies and their brief descriptions"
     schemaJSON.push({
       "@context": "http://schema.org",
       "@type": "CollectionPage",
@@ -391,6 +395,7 @@ const Head = ({
       },
     })
   } else if (pageType === "project") {
+    ogDescription = `${project.title} | ${project.description} | Created by ${author}`
     ogImage = `https:${project.featuredImage.ogImage.src}`
     schemaJSON.push({
       "@context": "http://schema.org",
@@ -477,6 +482,7 @@ const Head = ({
       },
     })
   } else if (pageType === "blog" || pageType === "tag") {
+    ogDescription = `Personal blog of ${author} where he writes about his personal thoughts, his learning journey and modern Front-End Development technologies`
     schemaJSON.push({
       "@context": "http://schema.org",
       "@type": "CollectionPage",
@@ -572,6 +578,7 @@ const Head = ({
       },
     })
   } else if (pageType === "blogPost") {
+    ogDescription = `${post.description}`
     ogImage = `https:${post.featuredImage.ogImage.src}`
     schemaJSON.push({
       "@context": "http://schema.org",
@@ -669,7 +676,7 @@ const Head = ({
       title={pageTitle}
       defer={false}
     >
-      <meta name="description" content={description} />
+      <meta name="description" content={ogDescription} />
 
       <script type="application/ld+json">{JSON.stringify(schemaJSON)}</script>
 
@@ -677,7 +684,7 @@ const Head = ({
       <meta property="og:type" content="website" />
       <meta property="og:url" content={ogUrl} />
       <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={ogDescription} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="628" />
@@ -686,7 +693,7 @@ const Head = ({
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={ogUrl} />
       <meta property="twitter:title" content={pageTitle} />
-      <meta property="twitter:description" content={description} />
+      <meta property="twitter:description" content={ogDescription} />
       <meta property="twitter:image" content={ogImage} />
       <meta name="twitter:creator" content="@ahmedmokhtardev" />
 

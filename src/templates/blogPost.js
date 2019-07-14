@@ -10,6 +10,7 @@ export const query = graphql`
   query($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
+      description
       publishDate(formatString: "MMMM Do, YYYY")
       updatedAt(formatString: "MMMM Do, YYYY")
       publishDateISO: publishDate
