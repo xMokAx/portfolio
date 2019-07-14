@@ -14,7 +14,8 @@ const ProjectsRoll = ({ projects, homePage }) => (
           <br />
           Mobile-First Responsive HTML Template &rarr; Native JavaScript APPs
           &rarr; PWAs &rarr; React APPs &rarr; Server Side Rendered (Next.js)
-          React APP &rarr; React Native APP &rarr; Static (Gatsby) React APP.
+          React APP &rarr; React Native APP &rarr; JAMStack (Gatsby, Contentful,
+          Netlify) React APP.
         </p>
       )}
       <div className="columns is-centered is-multiline">
