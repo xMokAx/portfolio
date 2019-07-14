@@ -239,6 +239,7 @@ const Head = ({
         specialty: title,
         url: ogUrl,
         name: pageTitle,
+        description: ogDescription,
         mainContentOfPage: {
           "@context": "http://schema.org/",
           "@type": "WebPageElement",
@@ -315,6 +316,7 @@ const Head = ({
         "@id": `${siteUrl}#person`,
       },
       name: pageTitle,
+      description: ogDescription,
       mainContentOfPage: {
         "@context": "http://schema.org/",
         "@type": "WebPageElement",
@@ -366,6 +368,7 @@ const Head = ({
       specialty: title,
       url: ogUrl,
       name: pageTitle,
+      description: ogDescription,
       mainContentOfPage: {
         "@context": "http://schema.org/",
         "@type": "WebPageElement",
@@ -435,6 +438,7 @@ const Head = ({
       specialty: title,
       url: ogUrl,
       name: pageTitle,
+      description: ogDescription,
       mainContentOfPage: {
         "@context": "http://schema.org/",
         "@type": "WebPageElement",
@@ -546,6 +550,7 @@ const Head = ({
       specialty: title,
       url: ogUrl,
       name: pageTitle,
+      description: ogDescription,
       mainContentOfPage: {
         "@context": "http://schema.org/",
         "@type": "WebPageElement",
@@ -618,6 +623,7 @@ const Head = ({
       specialty: title,
       url: ogUrl,
       name: pageTitle,
+      description: ogDescription,
       mainContentOfPage: {
         "@context": "http://schema.org/",
         "@type": "WebPageElement",
