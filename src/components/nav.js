@@ -106,7 +106,7 @@ class Nav extends Component {
             </NavLink>
             <li>
               <a
-                href="https://drive.google.com/file/d/1BtsZn2rD4D1hogeH9uF8H3Fcbbhy9nBB/view?usp=sharing"
+                href="https://drive.google.com/file/d/1GyyJtCCOFWvNP5fO38axAcYBMiEX-zyl/view?usp=sharing"
                 onClick={this.onNavLinkClick}
                 target="_blank"
                 rel="noopener noreferrer"
