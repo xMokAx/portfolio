@@ -91,9 +91,7 @@ const IndexPage = ({ data }) => (
         <h1 className="title home-title has-text-light">Hi, I'm Ahmed,</h1>
         <h2 className="subtitle home-subtitle has-text-grey-lighter is-capitalized">
           a self-taught self-motivated{" "}
-          <strong className="has-text-grey-lighter">
-            front end web developer
-          </strong>
+          <strong className="has-text-grey-lighter">front-end developer</strong>
           .
         </h2>
       </div>
