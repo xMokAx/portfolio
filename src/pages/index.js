@@ -10,6 +10,11 @@ import FeaturedTitle from "../components/featuredTitle"
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     file(relativePath: { eq: "moon.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 4160) {
@@ -91,7 +96,9 @@ const IndexPage = ({ data }) => (
         <h1 className="title home-title has-text-light">Hi, I'm Ahmed,</h1>
         <h2 className="subtitle home-subtitle has-text-grey-lighter is-capitalized">
           a self-taught self-motivated{" "}
-          <strong className="has-text-grey-lighter">front-end developer</strong>
+          <strong className="has-text-grey-lighter">
+            {data.site.siteMetadata.title}
+          </strong>
           .
         </h2>
       </div>

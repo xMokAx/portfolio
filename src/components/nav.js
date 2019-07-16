@@ -36,7 +36,7 @@ class Nav extends Component {
   }
 
   render() {
-    const author = this.props.data.site.siteMetadata.author
+    const { author, title } = this.props.data.site.siteMetadata
     return (
       <nav
         id="#header"
@@ -59,7 +59,7 @@ class Nav extends Component {
               {author}
             </h1>
             <h2 className="subtitle is-size-5-tablet is-size-6-mobile has-text-grey-lighter">
-              Front End Developer
+              {title}
             </h2>
           </Link>
 
@@ -185,6 +185,7 @@ const NavBar = () => {
       site {
         siteMetadata {
           author
+          title
         }
       }
       file(relativePath: { eq: "ahmed-mokhtar.jpg" }) {
