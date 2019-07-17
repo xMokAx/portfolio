@@ -61,8 +61,8 @@ const AboutPage = () => (
           <article className="content">
             <blockquote>
               <h2 className="has-text-black has-text-weight-bold">
-                Hi, i'm Ahmed Mokhtar, a self-taught self-motivated front end
-                web developer.
+                Hi, i'm Ahmed Mokhtar, a self-taught self-motivated Front-End
+                Developer.
               </h2>
             </blockquote>
             <p className="has-text-weight-semibold">
