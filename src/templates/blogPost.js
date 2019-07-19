@@ -47,6 +47,7 @@ const BlogPost = ({ data, pageContext }) => {
   const {
     title,
     publishDate,
+    updatedAt,
     body,
     featuredImage,
     tags,
@@ -68,6 +69,22 @@ const BlogPost = ({ data, pageContext }) => {
         <div className="container">
           <article className="content">
             <h1>{title}</h1>
+            <div className="is-flex flex-wrap">
+              <p style={{ margin: "0 8px 0 0" }}>
+                <span role="img" aria-label="publish date">
+                  📅
+                </span>{" "}
+                {publishDate}
+              </p>
+              <p style={{ marginBottom: "1em" }}>
+                <span role="img" aria-label="time to read">
+                  ⏱️
+                </span>{" "}
+                {timeToRead} min read
+              </p>
+            </div>
+            <TagsList tags={tags} />
+            <p>Updated: {updatedAt}</p>
             {featuredImage && (
               <Image
                 fluid={featuredImage.fluid}
@@ -80,22 +97,6 @@ const BlogPost = ({ data, pageContext }) => {
                 style={{ marginBottom: "16px" }}
               />
             )}
-            <TagsList tags={tags} />
-            <div className="is-flex">
-              <p>
-                <span role="img" aria-label="publish date">
-                  📅
-                </span>{" "}
-                {publishDate}
-              </p>
-              <span style={{ margin: "0 8px" }}>•</span>
-              <p>
-                <span role="img" aria-label="time to read">
-                  ⏱️
-                </span>{" "}
-                {timeToRead} min read
-              </p>
-            </div>
             <div dangerouslySetInnerHTML={{ __html: html }}></div>
           </article>
           <hr />
