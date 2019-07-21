@@ -36,6 +36,10 @@ comments:
       type: date
       options:
         format: "iso8601"
+      slug:
+        type: slugify
+        options:
+          field: slug
 
   # Whether entries need to be appproved before they are published to the main
   # branch. If set to `true`, a pull request will be created for your approval.
@@ -75,5 +79,3 @@ comments:
   # the name of the field and values are possible transformation types.
   transforms:
     email: md5
-
-  slug: "{options.slug}"
