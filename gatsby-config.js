@@ -23,6 +23,14 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
+    "gatsby-transformer-yaml",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/data/comments`,
+        name: "comments",
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
