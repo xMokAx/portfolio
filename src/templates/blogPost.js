@@ -5,10 +5,13 @@ import Image from "gatsby-image"
 import Layout from "../components/layout"
 import Head from "../components/head"
 import TagsList from "../components/tagsList"
+import Email from "../images/social/email.svg"
+import AboutIcon from "../images/menu/about.svg"
 
 export const query = graphql`
   query($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
+      slug
       title
       description
       publishDate(formatString: "MMMM Do, YYYY")
@@ -45,6 +48,7 @@ export const query = graphql`
 
 const BlogPost = ({ data, pageContext }) => {
   const {
+    slug,
     title,
     publishDate,
     updatedAt,
@@ -130,6 +134,68 @@ const BlogPost = ({ data, pageContext }) => {
                 </span>
               ))}
           </nav>
+
+          <form
+            method="POST"
+            action="https://ahmedmokhtar-staticman.herokuapp.com/v2/entry/xMokAx/portfolio/master/comments"
+          >
+            <input
+              name="options[redirect]"
+              type="hidden"
+              value="https://ahmedmokhtar.dev/"
+            />
+            <input name="fields[slug]" type="hidden" value={slug} />
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  name="fields[name]"
+                  className="input"
+                  type="text"
+                  placeholder="Name"
+                  required
+                />
+                <span className="icon is-small is-left">
+                  <AboutIcon className="form-icon" />
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  name="fields[email]"
+                  className="input"
+                  type="email"
+                  placeholder="Email"
+                  required
+                />
+                <span className="icon is-small is-left">
+                  <Email className="form-icon" />
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <div className="control">
+                <textarea
+                  name="fields[comment]"
+                  className="textarea"
+                  placeholder="Comment"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div className="field is-grouped">
+              <div className="control">
+                <button className="button is-link" type="submit">
+                  Submit
+                </button>
+              </div>
+              <div className="control">
+                <button className="button is-text" type="reset">
+                  Reset
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </section>
     </Layout>

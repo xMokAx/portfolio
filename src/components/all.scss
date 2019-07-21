@@ -210,7 +210,7 @@ $footer-padding: 1rem 1rem 1.5rem;
 }
 
 .nav-container {
-  z-index: 2;
+  z-index: 10;
 }
 
 .nav-bar {
@@ -312,6 +312,12 @@ $footer-padding: 1rem 1rem 1.5rem;
   background-color: #b5b5b5;
   height: 1px;
   width: 100%;
+}
+
+.form-icon {
+  width: 24px;
+  height: 24px;
+  fill: #dbdbdb;
 }
 
 @media only screen and (min-width: 1024px) {
