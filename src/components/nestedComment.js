@@ -19,7 +19,12 @@ const NestedComment = ({ name, email, comment, date, replyTo }) => {
               <br />
               <small>{date}</small>
               <br />
-              <small>In reply to {replyTo}</small>
+              <small>
+                In reply to{" "}
+                <span className="has-text-weight-bold has-text-dark">
+                  {replyTo}
+                </span>
+              </small>
             </p>
           </div>
         </div>

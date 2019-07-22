@@ -51,6 +51,7 @@ export const query = graphql`
           name
           email
           comment
+          replyTo
           date(formatString: "MMMM D, YYYY")
         }
       }

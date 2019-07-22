@@ -3,6 +3,7 @@ import React from "react"
 import Email from "../images/social/email.svg"
 import AboutIcon from "../images/menu/about.svg"
 
+// TODO: Maybe convert it to a controlled form.
 class CommentForm extends React.Component {
   formRef = React.createRef()
 
