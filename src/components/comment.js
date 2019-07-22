@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { CSSTransition } from "react-transition-group"
 
 import CommentForm from "./commentForm"
 
@@ -32,6 +33,7 @@ const Comment = ({
         <figure className="media-left">
           <p className="image is-64x64">
             <img
+              className="is-rounded"
               alt={`${name} avatar`}
               src={`https://www.gravatar.com/avatar/${email}?s=256&r=pg&d=identicon`}
             />
@@ -64,7 +66,7 @@ const Comment = ({
             }
           }}
         >
-          Reply to {name}
+          Reply
         </button>
       )}
       {children && (
@@ -76,7 +78,6 @@ const Comment = ({
       {children && (
         <button
           className="button is-link"
-          style={{ marginBottom: `${isReplying ? "16px" : "0"}` }}
           onClick={() => {
             setReplyingTo(name)
             if (isReplying) {
@@ -88,17 +89,23 @@ const Comment = ({
             }
           }}
         >
-          Reply to Thread
+          Reply
         </button>
       )}
-      {isReplying && (
+      <CSSTransition
+        in={isReplying}
+        timeout={315}
+        classNames="slide"
+        unmountOnExit
+      >
         <CommentForm
           ref={formElementRef}
           slug={slug}
           replyingTo={replyingTo}
           setReplyingTo={setReplyingTo}
+          title={`Reply to ${name}`}
         />
-      )}
+      </CSSTransition>
     </article>
   )
 }

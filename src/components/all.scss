@@ -67,6 +67,27 @@ $footer-padding: 1rem 1rem 1.5rem;
   }
 }
 
+.slide-enter {
+  opacity: 0;
+  height: 0;
+}
+
+.slide-enter-active {
+  opacity: 1;
+  height: 315px;
+  transition: all 315ms ease-in-out;
+}
+
+.slide-exit {
+  opacity: 1;
+  height: 315px;
+}
+
+.slide-exit-active {
+  opacity: 0;
+  height: 0;
+  transition: all 315ms ease-in-out;
+}
 
 // animations
 @keyframes spin {
@@ -258,6 +279,7 @@ $footer-padding: 1rem 1rem 1.5rem;
 
 .nav-menu {
   padding: 12px 12px 24px 12px;
+  transition: height 340ms, transform 340ms, padding 340ms, opacity 340ms ease-in-out;
 }
 
 .menu-icon {
@@ -362,6 +384,10 @@ div.arrow-up {
   .media {
     margin-bottom: 16px;
   }
+
+  button:not(:last-child) {
+    margin-bottom: 16px
+  }
 }
 
 .comment-text {
@@ -436,6 +462,23 @@ div.arrow-up {
 }
 
 @media only screen and (max-width: 1023px) {
+  .expand-menu {
+    opacity: 1;
+    height: 340px;
+    width: 100%;
+  }
+
+  .collapse-menu {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    width: 0;
+
+    >* {
+      display: none;
+    }
+  }
+
   .wrapper {
     flex-direction: column;
   }

@@ -6,7 +6,7 @@ import AboutIcon from "../images/menu/about.svg"
 // TODO: Maybe convert it to a controlled form.
 // using forwardRef to pass ref recieved from Comment Component to form element.
 const CommentForm = forwardRef(
-  ({ slug, replyingTo, setReplyingTo, className }, ref) => {
+  ({ slug, replyingTo, setReplyingTo, className, title }, ref) => {
     return (
       <form
         className={className}
@@ -16,7 +16,10 @@ const CommentForm = forwardRef(
         action="https://ahmedmokhtar-staticman.herokuapp.com/v2/entry/xMokAx/portfolio/master/comments"
       >
         <h3 className="title is-4">
-          {replyingTo ? `Reply to ${replyingTo}` : "Say Something"}
+          {title}{" "}
+          <span role="img" aria-label={title}>
+            💬
+          </span>
         </h3>
         <input
           name="options[redirect]"

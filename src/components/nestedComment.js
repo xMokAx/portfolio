@@ -7,6 +7,7 @@ const NestedComment = ({ name, email, comment, date, replyTo }) => {
         <figure className="media-left">
           <p className="image is-48x48">
             <img
+              className="is-rounded"
               alt={`${name} avatar`}
               src={`https://www.gravatar.com/avatar/${email}?s=192&r=pg&d=identicon`}
             />

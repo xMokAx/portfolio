@@ -122,12 +122,7 @@ const BlogPost = ({ data, pageContext }) => {
           <hr />
           {comments && comments.length ? (
             <React.Fragment>
-              <h3 className="title is-4">
-                <span role="img" aria-label="comment">
-                  💬
-                </span>{" "}
-                Comments ({comments.length})
-              </h3>
+              <h3 className="title is-4">Comments ({comments.length})</h3>
               {comments.map(({ node: commentData }) => {
                 if (commentData.replyTo) {
                   return null
@@ -154,14 +149,9 @@ const BlogPost = ({ data, pageContext }) => {
               })}
             </React.Fragment>
           ) : (
-            <h3 className="title is-4">
-              Be the first to leave a comment!{" "}
-              <span role="img" aria-label="comment">
-                💬
-              </span>
-            </h3>
+            <h3 className="title is-4">Be the First to Leave a Comment!</h3>
           )}
-          <CommentForm slug={slug} />
+          <CommentForm slug={slug} title="Leave a Comment" />
 
           <nav
             className="pagination is-centered"

@@ -87,7 +87,7 @@ const NavBar = () => {
       <div
         id="nav-menu"
         className={`menu nav-menu has-text-centered ${
-          isMenuActive ? "" : "is-hidden-touch"
+          isMenuActive ? "expand-menu" : "collapse-menu"
         }`}
       >
         <ul className="menu-list">
