@@ -5,8 +5,9 @@ import Image from "gatsby-image"
 import Layout from "../components/layout"
 import Head from "../components/head"
 import TagsList from "../components/tagsList"
-import Email from "../images/social/email.svg"
-import AboutIcon from "../images/menu/about.svg"
+import Comment from "../components/comment"
+import NestedComment from "../components/nestedComment"
+import CommentForm from "../components/commentForm"
 
 export const query = graphql`
   query($slug: String!) {
@@ -43,163 +44,170 @@ export const query = graphql`
         }
       }
     }
+    allCommentsYaml(filter: { slug: { eq: $slug } }) {
+      edges {
+        node {
+          id
+          name
+          email
+          comment
+          date(formatString: "MMMM D, YYYY")
+        }
+      }
+    }
   }
 `
+// date(formatString: "dddd, MMMM Do, YYYY - hh:mm z")
+class BlogPost extends React.Component {
+  state = {
+    replyingTo: "",
+  }
 
-const BlogPost = ({ data, pageContext }) => {
-  const {
-    slug,
-    title,
-    publishDate,
-    updatedAt,
-    body,
-    featuredImage,
-    tags,
-  } = data.contentfulBlogPost
-  const { html, timeToRead } = body.childMarkdownRemark
-  const { prev, next } = pageContext
-  const isPaginated = prev || next
-  return (
-    <Layout>
-      <Head
-        customTitle={`${title} by`}
-        pageType="blogPost"
-        post={data.contentfulBlogPost}
-      />
-      <Link className="button is-primary fixed-right-button" to="/blog/">
-        All Posts
-      </Link>
-      <section className="section">
-        <div className="container">
-          <article className="content">
-            <h1>{title}</h1>
-            <div className="is-flex flex-wrap">
-              <p style={{ margin: "0 8px 0 0" }}>
-                <span role="img" aria-label="publish date">
-                  📅
-                </span>{" "}
-                {publishDate}
-              </p>
-              <p style={{ marginBottom: "1em" }}>
-                <span role="img" aria-label="time to read">
-                  ⏱️
-                </span>{" "}
-                {timeToRead} min read
-              </p>
-            </div>
-            <TagsList tags={tags} />
-            <p>Updated: {updatedAt}</p>
-            {featuredImage && (
-              <Image
-                fluid={featuredImage.fluid}
-                alt={`${
-                  featuredImage.description
-                    ? featuredImage.description
-                    : featuredImage.title
-                }`}
-                className="has-shadow"
-                style={{ marginBottom: "16px" }}
-              />
+  onReplyClick = replyingTo => {
+    this.setState({
+      replyingTo,
+    })
+  }
+
+  render() {
+    const { data, pageContext } = this.props
+    const {
+      slug,
+      title,
+      publishDate,
+      updatedAt,
+      body,
+      featuredImage,
+      tags,
+    } = data.contentfulBlogPost
+    const { html, timeToRead } = body.childMarkdownRemark
+    const { prev, next } = pageContext
+    const isPaginated = prev || next
+    const comments = data.allCommentsYaml && data.allCommentsYaml.edges
+    return (
+      <Layout>
+        <Head
+          customTitle={`${title} by`}
+          pageType="blogPost"
+          post={data.contentfulBlogPost}
+        />
+        <Link className="button is-primary fixed-right-button" to="/blog/">
+          All Posts
+        </Link>
+        <section className="section">
+          <div className="container">
+            <article className="content">
+              <h1>{title}</h1>
+              <div className="is-flex flex-wrap">
+                <p style={{ margin: "0 8px 0 0" }}>
+                  <span role="img" aria-label="publish date">
+                    📅
+                  </span>{" "}
+                  {publishDate}
+                </p>
+                <p style={{ marginBottom: "1em" }}>
+                  <span role="img" aria-label="time to read">
+                    ⏱️
+                  </span>{" "}
+                  {timeToRead} min read
+                </p>
+              </div>
+              <TagsList tags={tags} />
+              <p>Updated: {updatedAt}</p>
+              {featuredImage && (
+                <Image
+                  fluid={featuredImage.fluid}
+                  alt={`${
+                    featuredImage.description
+                      ? featuredImage.description
+                      : featuredImage.title
+                  }`}
+                  className="has-shadow"
+                  style={{ marginBottom: "16px" }}
+                />
+              )}
+              <div dangerouslySetInnerHTML={{ __html: html }}></div>
+            </article>
+            <hr />
+            {comments && comments.length ? (
+              <React.Fragment>
+                <h3 className="title is-4">
+                  <span role="img" aria-label="comment">
+                    💬
+                  </span>{" "}
+                  Comments ({comments.length})
+                </h3>
+                {comments.map(({ node: commentData }) => {
+                  if (commentData.replyTo) {
+                    return null
+                  } else {
+                    const replies = comments.filter(
+                      ({ node: comment }) =>
+                        commentData.name === comment.replyTo
+                    )
+                    return (
+                      <Comment
+                        key={commentData.id}
+                        {...commentData}
+                        replyingTo={this.state.replyingTo}
+                        onReplyClick={this.onReplyClick}
+                        slug={slug}
+                      >
+                        {replies.length
+                          ? replies.map(({ node: reply }) => (
+                              <NestedComment key={reply.id} {...reply} />
+                            ))
+                          : null}
+                      </Comment>
+                    )
+                  }
+                })}
+              </React.Fragment>
+            ) : (
+              <h3 className="title is-4">
+                Be the first to leave a comment!{" "}
+                <span role="img" aria-label="comment">
+                  💬
+                </span>
+              </h3>
             )}
-            <div dangerouslySetInnerHTML={{ __html: html }}></div>
-          </article>
-          <hr />
-          <nav
-            className="pagination is-centered"
-            role="navigation"
-            aria-label="pagination"
-          >
-            {isPaginated &&
-              (prev ? (
-                <Link
-                  to={`/blog/${prev.slug}/`}
-                  className="pagination-previous"
-                >
-                  &larr; Prev Post
-                </Link>
-              ) : (
-                <span className="pagination-previous" disabled>
-                  &larr; Prev Post
-                </span>
-              ))}
+            <CommentForm slug={slug} />
 
-            {isPaginated &&
-              (next ? (
-                <Link to={`/blog/${next.slug}/`} className="pagination-next">
-                  Next Post &rarr;
-                </Link>
-              ) : (
-                <span className="pagination-next" disabled>
-                  Next Post &rarr;
-                </span>
-              ))}
-          </nav>
+            <nav
+              className="pagination is-centered"
+              role="navigation"
+              aria-label="pagination"
+            >
+              {isPaginated &&
+                (prev ? (
+                  <Link
+                    to={`/blog/${prev.slug}/`}
+                    className="pagination-previous"
+                  >
+                    &larr; Prev Post
+                  </Link>
+                ) : (
+                  <span className="pagination-previous" disabled>
+                    &larr; Prev Post
+                  </span>
+                ))}
 
-          <form
-            method="POST"
-            action="https://ahmedmokhtar-staticman.herokuapp.com/v2/entry/xMokAx/portfolio/master/comments"
-          >
-            <input
-              name="options[redirect]"
-              type="hidden"
-              value="https://ahmedmokhtar.dev/"
-            />
-            <input name="fields[slug]" type="hidden" value={slug} />
-            <div className="field">
-              <p className="control has-icons-left">
-                <input
-                  name="fields[name]"
-                  className="input"
-                  type="text"
-                  placeholder="Name"
-                  required
-                />
-                <span className="icon is-small is-left">
-                  <AboutIcon className="form-icon" />
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input
-                  name="fields[email]"
-                  className="input"
-                  type="email"
-                  placeholder="Email"
-                  required
-                />
-                <span className="icon is-small is-left">
-                  <Email className="form-icon" />
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <div className="control">
-                <textarea
-                  name="fields[comment]"
-                  className="textarea"
-                  placeholder="Comment"
-                  required
-                ></textarea>
-              </div>
-            </div>
-            <div className="field is-grouped">
-              <div className="control">
-                <button className="button is-link" type="submit">
-                  Submit
-                </button>
-              </div>
-              <div className="control">
-                <button className="button is-text" type="reset">
-                  Reset
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-    </Layout>
-  )
+              {isPaginated &&
+                (next ? (
+                  <Link to={`/blog/${next.slug}/`} className="pagination-next">
+                    Next Post &rarr;
+                  </Link>
+                ) : (
+                  <span className="pagination-next" disabled>
+                    Next Post &rarr;
+                  </span>
+                ))}
+            </nav>
+          </div>
+        </section>
+      </Layout>
+    )
+  }
 }
 
-export default BlogPost
+export default props => <BlogPost {...props} />
