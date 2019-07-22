@@ -72,7 +72,7 @@ module.exports = {
       options: {
         id: process.env.GOOGLE_TAGMANAGER,
         // Include GTM in development.
-        includeInDevelopment: true,
+        // includeInDevelopment: true,
       },
     },
     "gatsby-plugin-sitemap",
