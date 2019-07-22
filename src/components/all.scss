@@ -67,6 +67,7 @@ $footer-padding: 1rem 1rem 1.5rem;
   }
 }
 
+/* purgecss start ignore */
 .slide-enter {
   opacity: 0;
   height: 0;
@@ -88,6 +89,8 @@ $footer-padding: 1rem 1rem 1.5rem;
   height: 0;
   transition: all 315ms ease-in-out;
 }
+
+/* purgecss end ignore */
 
 // animations
 @keyframes spin {
