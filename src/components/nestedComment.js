@@ -17,7 +17,7 @@ const NestedComment = ({ name, email, comment, date, replyTo }) => {
             <p>
               <strong>{name}</strong>
               <br />
-              <small>{date}</small>
+              <small className="is-size-7-mobile">{date}</small>
               <br />
               <small>
                 In reply to{" "}

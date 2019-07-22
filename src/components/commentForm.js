@@ -1,27 +1,16 @@
-import React from "react"
+import React, { forwardRef } from "react"
 
 import Email from "../images/social/email.svg"
 import AboutIcon from "../images/menu/about.svg"
 
 // TODO: Maybe convert it to a controlled form.
-class CommentForm extends React.Component {
-  formRef = React.createRef()
-
-  componentDidMount() {
-    if (this.props.replyingTo) {
-      window.scrollTo({
-        left: 0,
-        top: this.formRef.current.offsetTop,
-        behavior: "smooth",
-      })
-    }
-  }
-
-  render() {
-    const { slug, replyingTo, onReplyClick } = this.props
+// using forwardRef to pass ref recieved from Comment Component to form element.
+const CommentForm = forwardRef(
+  ({ slug, replyingTo, setReplyingTo, className }, ref) => {
     return (
       <form
-        ref={this.formRef}
+        className={className}
+        ref={ref}
         id={`${replyingTo ? replyingTo : "comment"}-form`}
         method="POST"
         action="https://ahmedmokhtar-staticman.herokuapp.com/v2/entry/xMokAx/portfolio/master/comments"
@@ -92,7 +81,7 @@ class CommentForm extends React.Component {
               <button
                 className="button is-danger"
                 type="button"
-                onClick={() => onReplyClick("")}
+                onClick={() => setReplyingTo("")}
               >
                 Cancel
               </button>
@@ -102,6 +91,6 @@ class CommentForm extends React.Component {
       </form>
     )
   }
-}
+)
 
 export default CommentForm

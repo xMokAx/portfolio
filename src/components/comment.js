@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import CommentForm from "./commentForm"
 
@@ -9,11 +9,23 @@ const Comment = ({
   comment,
   date,
   replyingTo,
-  onReplyClick,
+  setReplyingTo,
   children,
   slug,
 }) => {
-  const formComponentRef = React.createRef()
+  const formElementRef = React.createRef()
+  const isReplying = replyingTo === name
+  // useEffect runs this function when replyingTo changes.
+  useEffect(() => {
+    // scroll only if replyingTo changes from false to true
+    if (isReplying) {
+      window.scrollTo({
+        left: 0,
+        top: formElementRef.current.offsetTop,
+        behavior: "smooth",
+      })
+    }
+  }, [replyingTo])
   return (
     <article className="box comment flex flex-vertical" key={id}>
       <div className="media">
@@ -30,7 +42,7 @@ const Comment = ({
             <p>
               <strong>{name}</strong>
               <br />
-              <small>{date}</small>
+              <small className="is-size-7-mobile">{date}</small>
             </p>
           </div>
         </div>
@@ -41,11 +53,12 @@ const Comment = ({
           className="button is-link"
           style={{ marginTop: "16px" }}
           onClick={() => {
-            onReplyClick(name)
-            if (formComponentRef.current) {
+            // scroll only if the form is already shown.
+            setReplyingTo(name)
+            if (isReplying) {
               window.scrollTo({
                 left: 0,
-                top: formComponentRef.current.formRef.current.offsetTop,
+                top: formElementRef.current.offsetTop,
                 behavior: "smooth",
               })
             }
@@ -63,13 +76,13 @@ const Comment = ({
       {children && (
         <button
           className="button is-link"
-          style={{ marginBottom: `${replyingTo === name ? "16px" : "0"}` }}
+          style={{ marginBottom: `${isReplying ? "16px" : "0"}` }}
           onClick={() => {
-            onReplyClick(name)
-            if (formComponentRef.current) {
+            setReplyingTo(name)
+            if (isReplying) {
               window.scrollTo({
                 left: 0,
-                top: formComponentRef.current.formRef.current.offsetTop,
+                top: formElementRef.current.offsetTop,
                 behavior: "smooth",
               })
             }
@@ -78,12 +91,12 @@ const Comment = ({
           Reply to Thread
         </button>
       )}
-      {replyingTo === name && (
+      {isReplying && (
         <CommentForm
-          ref={formComponentRef}
+          ref={formElementRef}
           slug={slug}
           replyingTo={replyingTo}
-          onReplyClick={onReplyClick}
+          setReplyingTo={setReplyingTo}
         />
       )}
     </article>
