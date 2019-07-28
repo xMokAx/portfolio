@@ -49,11 +49,8 @@ const NavBar = () => {
 
   const { author, title } = data.site.siteMetadata
   return (
-    <nav
-      id="#header"
-      className="nav-container has-background-black is-flex flex-vertical"
-    >
-      <div className="nav-bar is-flex flex-justify-center flex-align-center is-hidden-desktop">
+    <nav id="#header" className="nav-container is-flex flex-vertical">
+      <div className="nav-bar has-background-black is-flex flex-justify-center flex-align-center is-hidden-desktop">
         <Link to="/">
           <Image
             fluid={data.file.childImageSharp.fluid}
@@ -86,7 +83,7 @@ const NavBar = () => {
       </div>
       <div
         id="nav-menu"
-        className={`menu nav-menu has-text-centered ${
+        className={`menu nav-menu has-background-black has-text-centered ${
           isMenuActive ? "expand-menu" : "collapse-menu"
         }`}
       >
