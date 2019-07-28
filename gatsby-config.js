@@ -110,7 +110,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Lato:400,600,700"],
+          families: ["Open+Sans:400,400i,600,600i,700&display=swap"],
         },
       },
     },
