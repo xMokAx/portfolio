@@ -64,7 +64,7 @@ const PostCard = ({
     </div>
     <div className="content">
       <p>{description}</p>
-      <Link to={`/blog/${slug}/`} className="button is-primary is-outlined">
+      <Link to={`/blog/${slug}/`} className="button is-link is-outlined">
         Continue reading &rarr;
       </Link>
     </div>

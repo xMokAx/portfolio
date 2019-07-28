@@ -60,7 +60,7 @@ const Project = props => {
         project={props.data.contentfulProject}
         pageType="project"
       />
-      <Link className="button is-primary fixed-right-button" to="/projects/">
+      <Link className="button is-link fixed-right-button" to="/projects/">
         All Projects
       </Link>
       <section className="section">
@@ -83,7 +83,7 @@ const Project = props => {
                   href={website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button is-primary"
+                  className="button is-link"
                 >
                   View Online
                 </a>
@@ -93,7 +93,7 @@ const Project = props => {
                   href={source}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button is-primary"
+                  className="button is-link"
                 >
                   View Source
                 </a>

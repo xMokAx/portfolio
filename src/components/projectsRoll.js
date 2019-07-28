@@ -55,7 +55,7 @@ const ProjectsRoll = ({ projects, homePage }) => (
       </div>
       {homePage && (
         <div className="column is-12 is-flex flex-justify-center">
-          <Link className="button is-primary is-large" to="/projects/">
+          <Link className="button is-link is-large" to="/projects/">
             All Projects
           </Link>
         </div>

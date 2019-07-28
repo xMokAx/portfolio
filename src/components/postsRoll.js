@@ -42,7 +42,7 @@ const PostsRoll = ({ homePage, posts, paginationProps }) => {
         </div>
         {homePage && (
           <div className="column is-12 is-flex flex-justify-center">
-            <Link className="button is-primary is-large" to="/blog/">
+            <Link className="button is-link is-large" to="/blog/">
               All Posts
             </Link>
           </div>

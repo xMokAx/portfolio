@@ -82,7 +82,7 @@ const BlogPost = ({ data, pageContext }) => {
         pageType="blogPost"
         post={data.contentfulBlogPost}
       />
-      <Link className="button is-primary fixed-right-button" to="/blog/">
+      <Link className="button is-link fixed-right-button" to="/blog/">
         All Posts
       </Link>
       <section className="section">
