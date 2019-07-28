@@ -6,10 +6,10 @@ import AboutIcon from "../images/menu/about.svg"
 // TODO: Maybe convert it to a controlled form.
 // using forwardRef to pass ref recieved from Comment Component to form element.
 const CommentForm = forwardRef(
-  ({ slug, replyingTo, setReplyingTo, className, title }, ref) => {
+  ({ slug, replyingTo, setReplyingTo, title }, ref) => {
     return (
       <form
-        className={className}
+        className="comment-form"
         ref={ref}
         id={`${replyingTo ? replyingTo : "comment"}-form`}
         method="POST"
@@ -37,6 +37,7 @@ const CommentForm = forwardRef(
               className="input"
               type="text"
               placeholder="Name"
+              aria-label="Name"
               required
             />
             <span className="icon is-small is-left">
@@ -51,6 +52,7 @@ const CommentForm = forwardRef(
               className="input"
               type="email"
               placeholder="Email"
+              aria-label="Email"
               required
             />
             <span className="icon is-small is-left">
@@ -64,6 +66,7 @@ const CommentForm = forwardRef(
               name="fields[comment]"
               className="textarea"
               placeholder="Comment"
+              aria-label="Comment"
               required
             ></textarea>
           </div>
