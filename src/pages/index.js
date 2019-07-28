@@ -89,7 +89,7 @@ const IndexPage = ({ data }) => (
     />
     <BackgroundImage
       fluid={data.file.childImageSharp.fluid}
-      className="home-image"
+      className="home-image has-background-black"
       backgroundColor="#00171f"
     >
       <div style={{ marginBottom: "10vh" }}>
