@@ -245,7 +245,7 @@ $footer-padding: 1rem 1rem 1.5rem;
 }
 
 .contact-container {
-  padding: 24px;
+  padding: 12px 12px 20px;
 }
 
 .contact {
@@ -271,9 +271,9 @@ $footer-padding: 1rem 1rem 1.5rem;
 }
 
 .nav-menu {
-  padding: 12px 12px 24px 12px;
-  transition: height 340ms, transform 340ms, padding 340ms,
-    opacity 340ms ease-in-out;
+  padding: 12px;
+  transition: height 312ms, transform 312ms, padding 312ms,
+    opacity 312ms ease-in-out;
 }
 
 .menu-icon {
@@ -457,7 +457,7 @@ $footer-padding: 1rem 1rem 1.5rem;
 @media only screen and (max-width: 1023px) {
   .expand-menu {
     opacity: 1;
-    height: 340px;
+    height: 312px;
     width: 100%;
   }
 

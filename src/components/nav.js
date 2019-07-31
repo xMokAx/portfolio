@@ -165,14 +165,12 @@ const NavBar = () => {
             <LinkedinIcon />
           </a>
         </div>
-        <div id="#footer">
-          <p
-            className="is-flex flex-align-center flex-justify-center has-text-grey has-text-centered"
-            style={{ fontSize: "14px" }}
-          >
-            <Logo className="logo" />© 2019 {author}.
+        <footer id="#footer">
+          <p className="is-flex flex-align-center flex-justify-center has-text-grey has-text-centered">
+            <Logo className="logo" />
+            <small>© 2019 {author}.</small>
           </p>
-        </div>
+        </footer>
       </div>
     </nav>
   )
