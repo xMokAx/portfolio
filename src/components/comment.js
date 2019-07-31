@@ -71,7 +71,6 @@ const Comment = ({
       )}
       {children && (
         <div className="box nested-comments has-background-light">
-          <div className="arrow-up"></div>
           {children}
         </div>
       )}

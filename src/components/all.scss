@@ -339,35 +339,34 @@ $footer-padding: 1rem 1rem 1.5rem;
 
 .nested-comments {
   position: relative;
-  margin: 24px 0 0 32px;
+  margin: 24px 0 0 24px;
 
   .comment:not(:first-child) {
     margin-top: 24px;
   }
 
-  &::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 22px solid whitesmoke;
+  &::before,
+  &::after {
+    content: " ";
+    display: block;
+    border-style: solid;
+    border-color: transparent;
     position: absolute;
-    top: -22px;
     left: 8px;
-    z-index: 2;
+    top: -24px;
   }
-}
 
-div.arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 24px solid #dbdbdb;
-  position: absolute;
-  top: -24px;
-  left: 8px;
+  &::after {
+    border-bottom-color: whitesmoke;
+    border-width: 11px;
+    margin-left: 1px;
+    margin-top: 2px;
+  }
+
+  &::before {
+    border-bottom-color: #dbdbdb;
+    border-width: 12px;
+  }
 }
 
 .box.nested-comments {
