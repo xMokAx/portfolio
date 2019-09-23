@@ -9,7 +9,7 @@ const NotFound = () => (
     <Head>
       <title>404 | Page Not Found</title>
     </Head>
-    <section className="is-flex flex-justify-center flex-align-center flex-vertical">
+    <section className="is-flex flex-justify-center flex-align-center flex-vertical full-height">
       <h1 className="title is-size-4-mobile">404 | Page not found</h1>
       <p>
         <Link className="button is-primary" to="/">
