@@ -266,7 +266,7 @@ const Head = ({
       //   itemListElement: projects.map(({ node: project }, i) => ({
       //     "@type": "ListItem",
       //     position: String(i + 1),
-      //     url: `${siteUrl}/projects/${project.slug}/`,
+      //     url: `${siteUrl}projects/${project.slug}/`,
       //   })),
       // },
       // {
@@ -276,7 +276,7 @@ const Head = ({
       //   itemListElement: posts.map(({ node: post }, i) => ({
       //     "@type": "ListItem",
       //     position: String(i + 1),
-      //     url: `${siteUrl}/blog/${post.slug}/`,
+      //     url: `${siteUrl}blog/${post.slug}/`,
       //   })),
       // }
     )
@@ -393,7 +393,7 @@ const Head = ({
         itemListElement: projects.map(({ node: project }, i) => ({
           "@type": "ListItem",
           position: String(i + 1),
-          url: `${siteUrl}/projects/${project.slug}/`,
+          url: `${siteUrl}projects/${project.slug}/`,
         })),
       },
     })
@@ -420,7 +420,7 @@ const Head = ({
             "@type": "ListItem",
             position: 2,
             item: {
-              "@id": `${siteUrl}/projects/`,
+              "@id": `${siteUrl}projects/`,
               name: "Projects",
             },
           },
@@ -577,7 +577,7 @@ const Head = ({
           return {
             "@type": "ListItem",
             position: String(i + 1),
-            url: `${siteUrl}/blog/${post.slug}/`,
+            url: `${siteUrl}blog/${post.slug}/`,
           }
         }),
       },
@@ -605,7 +605,7 @@ const Head = ({
             "@type": "ListItem",
             position: 2,
             item: {
-              "@id": `${siteUrl}/blog/`,
+              "@id": `${siteUrl}blog/`,
               name: "Blog",
             },
           },
