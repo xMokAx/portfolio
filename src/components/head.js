@@ -68,7 +68,7 @@ const Head = ({
       birthPlace: {
         "@type": "Place",
         address: {
-          "@id": "address",
+          "@id": `${siteUrl}#address`,
           "@type": "PostalAddress",
           addressLocality: "Port Fouad",
           addressRegion: "Port Said",
@@ -99,7 +99,7 @@ const Head = ({
         width: 512,
       },
       address: {
-        "@id": "address",
+        "@id": `${siteUrl}#address`,
       },
       sameAs: contact,
     },
