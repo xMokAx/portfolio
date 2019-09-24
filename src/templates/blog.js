@@ -1,7 +1,6 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
 import Head from "../components/head"
 import PostsRoll from "../components/postsRoll"
 import FeaturedTitle from "../components/featuredTitle"
@@ -43,16 +42,17 @@ export const query = graphql`
   }
 `
 
-const Blog = ({ data, pageContext }) => {
+const Blog = ({ data, pageContext, location }) => {
   const posts = data.allContentfulBlogPost.edges
   const { currentPage, numPages } = pageContext
   const isFirstPage = currentPage === 1
   return (
-    <Layout>
+    <Fragment>
       <Head
         customTitle={`${isFirstPage ? "" : `Page ${currentPage} | `}Blog of`}
         posts={posts}
         pageType="blog"
+        pathname={location.pathname}
       />
       <section>
         <FeaturedTitle title="Blog">
@@ -68,7 +68,7 @@ const Blog = ({ data, pageContext }) => {
           paginationProps={{ currentPage, numPages, basePath: "/blog/" }}
         />
       </section>
-    </Layout>
+    </Fragment>
   )
 }
 

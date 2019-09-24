@@ -1,11 +1,9 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { Location } from "@reach/router"
 
 const Head = ({
   customTitle,
-  location,
   children,
   pageType,
   projects,
@@ -13,6 +11,7 @@ const Head = ({
   posts,
   post,
   tag,
+  pathname,
 }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -52,7 +51,7 @@ const Head = ({
   const pageTitle = `${
     customTitle ? `${customTitle} ` : ""
   }${author} | ${title}`
-  const ogUrl = location.href
+  const ogUrl = `${siteUrl.slice(0, -1)}${pathname}`
   let ogImage = image
   let ogDescription = description
 
@@ -147,10 +146,12 @@ const Head = ({
         "HTML5",
         "CSS3",
         "Sass",
+        "styled components",
         "Bulma",
         "Materialize",
         "Bootstrap",
         "Javascript",
+        "TypeScript",
         "React",
         "Redux",
         "Next.js",
@@ -715,10 +716,10 @@ const Head = ({
   )
 }
 
-const HeadWithLocation = props => (
-  <Location>
-    {({ location }) => <Head location={location} {...props} />}
-  </Location>
-)
+// const HeadWithLocation = props => (
+//   <Location>
+//     {({ location }) => <Head location={location} {...props} />}
+//   </Location>
+// )
 
-export default HeadWithLocation
+export default Head

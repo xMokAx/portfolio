@@ -1,7 +1,6 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
 import Head from "../components/head"
 import ProjectsRoll from "../components/projectsRoll"
 import FeaturedTitle from "../components/featuredTitle"
@@ -32,18 +31,19 @@ export const query = graphql`
   }
 `
 
-const ProjectsPage = ({ data }) => (
-  <Layout>
+const ProjectsPage = ({ data, location }) => (
+  <Fragment>
     <Head
       customTitle="Portfolio of"
       pageType="projects"
       projects={data.allContentfulProject.edges}
+      pathname={location.pathname}
     />
     <section>
       <FeaturedTitle title="Projects" />
       <ProjectsRoll projects={data.allContentfulProject.edges} />
     </section>
-  </Layout>
+  </Fragment>
 )
 
 export default ProjectsPage

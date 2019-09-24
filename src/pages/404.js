@@ -1,12 +1,11 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
 import Head from "../components/head"
 
-const NotFound = () => (
-  <Layout>
-    <Head>
+const NotFound = ({ location }) => (
+  <Fragment>
+    <Head pathname={location.pathname}>
       <title>404 | Page Not Found</title>
     </Head>
     <section className="is-flex flex-justify-center flex-align-center flex-vertical full-height">
@@ -17,7 +16,7 @@ const NotFound = () => (
         </Link>
       </p>
     </section>
-  </Layout>
+  </Fragment>
 )
 
 export default NotFound

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import {
   BarChart,
   Bar,
@@ -10,7 +10,6 @@ import {
   ResponsiveContainer,
 } from "recharts"
 
-import Layout from "../components/layout"
 import Head from "../components/head"
 import FeaturedTitle from "../components/featuredTitle"
 import TechnoList from "../components/technoList"
@@ -22,6 +21,7 @@ import Materialize from "../images/technologies/materialize.svg"
 import Bulma from "../images/technologies/bulma.svg"
 import Bootstrap from "../images/technologies/bootstrap.svg"
 import Javascript from "../images/technologies/javascript.svg"
+import Typescript from "../images/technologies/typescript.svg"
 import ReactIcon from "../images/technologies/reactjs.svg"
 import Redux from "../images/technologies/redux.svg"
 import Next from "../images/technologies/next.svg"
@@ -47,13 +47,13 @@ import Contentful from "../images/technologies/contentful.svg"
 const chartData = [
   { name: "HTML5", level: 90, color: "#E44D26" },
   { name: "CSS3", level: 80, color: "#42A5F5" },
-  { name: "JS", level: 80, color: "#FFCA28" },
+  { name: "JS", level: 85, color: "#FFCA28" },
   { name: "React", level: 90, color: "#00BCD4" },
 ]
 
-const AboutPage = () => (
-  <Layout>
-    <Head customTitle="About" pageType="about" />
+const AboutPage = ({ location }) => (
+  <Fragment>
+    <Head customTitle="About" pageType="about" pathname={location.pathname} />
     <section>
       <FeaturedTitle title="About me" />
       <div className="section">
@@ -78,15 +78,26 @@ const AboutPage = () => (
               </em>
             </p>
             <h3>Current work</h3>
-            <p className="has-text-weight-semibold">
-              <em>Improving this website.</em>
-            </p>
+            <ul>
+              <li>Improving this website.</li>
+              <li>
+                creating a chat app using React, TypeScript, Redux, Redux saga,
+                Styled components and Firebase(Authentication, Firestore and
+                Cloud functions).
+              </li>
+              <li>Some open-source contributions.</li>
+            </ul>
             <h3>Todos</h3>
             <ul>
+              <li className="done">Learn TypeScript.</li>
+              <li className="done">Learn Styled components.</li>
+              <li>
+                Learn another state management library (maybe mobx,
+                mobx-state-tree or a redux abstraction like easy-peasy or
+                rematch).
+              </li>
               <li>Learn Vue.js.</li>
-              <li>Learn more about Webpack.</li>
-              <li>Learn more about TypeScript.</li>
-              <li>Learn more about node.js or learn Go lang.</li>
+              <li>Learn more about Node.js or learn Go lang.</li>
             </ul>
           </article>
         </div>
@@ -107,7 +118,7 @@ const AboutPage = () => (
               >
                 <BarChart
                   data={chartData}
-                  margin={{ top: 5, right: 5, bottom: 5, left: 12 }}
+                  margin={{ top: 5, right: 5, bottom: 5, left: 16 }}
                 >
                   <CartesianGrid />
                   <XAxis dataKey="name" tick={false} />
@@ -174,6 +185,16 @@ const AboutPage = () => (
               icons={[
                 { Icon: Css, title: "CSS3" },
                 { Icon: Sass, title: "Sass" },
+                {
+                  Icon: ({ className }) => (
+                    <img
+                      className={className}
+                      src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png"
+                      alt="styled-components"
+                    />
+                  ),
+                  title: "Styled components",
+                },
                 { Icon: Bulma, title: "Bulma" },
                 { Icon: Materialize, title: "Materialize" },
                 { Icon: Bootstrap, title: "Bootstrap" },
@@ -181,7 +202,8 @@ const AboutPage = () => (
             />
             <TechnoList
               icons={[
-                { Icon: Javascript, title: "Javascript" },
+                { Icon: Javascript, title: "JavaScript" },
+                { Icon: Typescript, title: "TypeScript" },
                 { Icon: ReactIcon, title: "React" },
                 { Icon: Redux, title: "Redux" },
                 { Icon: Next, title: "Next.js" },
@@ -278,7 +300,7 @@ const AboutPage = () => (
         </div>
       </div>
     </section>
-  </Layout>
+  </Fragment>
 )
 
 export default AboutPage

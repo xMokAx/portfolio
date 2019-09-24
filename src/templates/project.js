@@ -1,9 +1,8 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-import Layout from "../components/layout"
 import Head from "../components/head"
 
 export const query = graphql`
@@ -33,7 +32,7 @@ export const query = graphql`
   }
 `
 
-const Project = props => {
+const Project = ({ data, location }) => {
   const options = {
     renderNode: {
       "embedded-asset-block": node => {
@@ -51,14 +50,15 @@ const Project = props => {
     technologies,
     body,
     featuredImage,
-  } = props.data.contentfulProject
+  } = data.contentfulProject
 
   return (
-    <Layout>
+    <Fragment>
       <Head
         customTitle={`${title} by`}
-        project={props.data.contentfulProject}
+        project={data.contentfulProject}
         pageType="project"
+        pathname={location.pathname}
       />
       <Link className="button is-link fixed-right-button" to="/projects/">
         All Projects
@@ -112,7 +112,7 @@ const Project = props => {
           </article>
         </div>
       </section>
-    </Layout>
+    </Fragment>
   )
 }
 

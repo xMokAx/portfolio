@@ -9,9 +9,9 @@ module.exports = {
       "Ahmed Mokhtar is a self-taught self-motivated Front-End developer. He enjoys programming, solving problems and learning new technologies. He gives a great attention to details. The sense of achievement is the thing that keeps him going and makes him happy the most.",
     shortDescription: "Self-taught self-motivated Front-End developer",
     siteUrl: "https://ahmedmokhtar.dev/",
-    image: "https://ahmedmokhtar.dev/img/og-image.jpg",
-    schemaImage: "https://ahmedmokhtar.dev/img/ahmed-mokhtar.jpg",
-    logo: "https://ahmedmokhtar.dev/img/logo.png",
+    image: "https://ahmedmokhtar.dev/img/og-image.jpg/",
+    schemaImage: "https://ahmedmokhtar.dev/img/ahmed-mokhtar.jpg/",
+    logo: "https://ahmedmokhtar.dev/img/logo.png/",
     email: "ahmedmokhtar11j@gmail.com",
     contact: [
       "https://github.com/xMokAx",

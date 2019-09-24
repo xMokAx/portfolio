@@ -149,6 +149,10 @@ $footer-padding: 1rem 1rem 1.5rem;
   width: 100%;
 }
 
+.done {
+  text-decoration: line-through;
+}
+
 .full-height {
   height: 100%;
 }
@@ -321,6 +325,13 @@ $footer-padding: 1rem 1rem 1.5rem;
   margin-bottom: 4px;
 }
 
+.techno-text {
+  max-width: 80px;
+  text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .techno-icon-container {
   margin: 4px;
 }
@@ -453,6 +464,10 @@ $footer-padding: 1rem 1rem 1.5rem;
     margin-bottom: 6px;
   }
 
+  .techno-text {
+    max-width: 100px;
+  }
+  
   .techno-icon-container {
     margin: 6px;
   }

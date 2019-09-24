@@ -1,8 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 
-import Layout from "../components/layout"
 import Head from "../components/head"
 import TagsList from "../components/tagsList"
 import Comment from "../components/comment"
@@ -59,7 +58,7 @@ export const query = graphql`
   }
 `
 // date(formatString: "dddd, MMMM Do, YYYY - hh:mm z")
-const BlogPost = ({ data, pageContext }) => {
+const BlogPost = ({ data, pageContext, location }) => {
   const [replyingTo, setReplyingTo] = useState("")
 
   const {
@@ -76,11 +75,12 @@ const BlogPost = ({ data, pageContext }) => {
   const isPaginated = prev || next
   const comments = data.allCommentsYaml && data.allCommentsYaml.edges
   return (
-    <Layout>
+    <Fragment>
       <Head
         customTitle={`${title} by`}
         pageType="blogPost"
         post={data.contentfulBlogPost}
+        pathname={location.pathname}
       />
       <Link className="button is-link fixed-right-button" to="/blog/">
         All Posts
@@ -185,7 +185,7 @@ const BlogPost = ({ data, pageContext }) => {
           </nav>
         </div>
       </section>
-    </Layout>
+    </Fragment>
   )
 }
 

@@ -1,8 +1,7 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
-import Layout from "../components/layout"
 import Head from "../components/head"
 import ProjectsRoll from "../components/projectsRoll"
 import PostsRoll from "../components/postsRoll"
@@ -80,12 +79,13 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ data }) => (
-  <Layout>
+const IndexPage = ({ data, location }) => (
+  <Fragment>
     <Head
       pageType="home"
       projects={data.allContentfulProject.edges}
       posts={data.allContentfulBlogPost.edges}
+      pathname={location.pathname}
     />
     <BackgroundImage
       fluid={data.file.childImageSharp.fluid}
@@ -128,7 +128,7 @@ const IndexPage = ({ data }) => (
       <FeaturedTitle title="Featured Posts" />
       <PostsRoll posts={data.allContentfulBlogPost.edges} homePage />
     </section>
-  </Layout>
+  </Fragment>
 )
 
 export default IndexPage
