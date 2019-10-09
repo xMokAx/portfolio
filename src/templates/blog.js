@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Head from "../components/head"
 import PostsRoll from "../components/postsRoll"
 import FeaturedTitle from "../components/featuredTitle"
+import TagsList from "../components/tagsList"
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
@@ -39,11 +40,18 @@ export const query = graphql`
         }
       }
     }
+    allContentfulTag(sort: { fields: name, order: ASC }) {
+      nodes {
+        name
+        slug
+      }
+    }
   }
 `
 
 const Blog = ({ data, pageContext, location }) => {
   const posts = data.allContentfulBlogPost.edges
+  const tags = data.allContentfulTag.nodes
   const { currentPage, numPages } = pageContext
   const isFirstPage = currentPage === 1
   return (
@@ -60,9 +68,14 @@ const Blog = ({ data, pageContext, location }) => {
             <span role="img" aria-label="Page">
               📄
             </span>{" "}
-            Page {currentPage}
+            {currentPage}
           </p>
         </FeaturedTitle>
+        <div style={{ padding: "1.5rem 1.5rem 0" }}>
+          <div className="container">
+            <TagsList tags={tags} className="flex-justify-center" />
+          </div>
+        </div>
         <PostsRoll
           posts={posts}
           paginationProps={{ currentPage, numPages, basePath: "/blog/" }}

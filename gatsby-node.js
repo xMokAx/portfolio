@@ -97,8 +97,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
   })
 
   blogPosts.forEach(async ({ node: blogPost }, i, blogPosts) => {
-    const prev = i === 0 ? null : blogPosts[i - 1].node
-    const next = i === blogPosts.length - 1 ? null : blogPosts[i + 1].node
+    const next = i === 0 ? null : blogPosts[i - 1].node
+    const prev = i === blogPosts.length - 1 ? null : blogPosts[i + 1].node
     await createPage({
       component: blogPostTemplate,
       path: `/blog/${blogPost.slug}/`,

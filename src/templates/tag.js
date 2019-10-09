@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Head from "../components/head"
 import PostsRoll from "../components/postsRoll"
@@ -60,8 +60,14 @@ const Tag = ({ data, pageContext, location }) => {
             <span role="img" aria-label="Page">
               📄
             </span>{" "}
-            Page {currentPage}
+            {currentPage}
           </p>
+          <Link
+            className="button is-link fixed-right-button tag-page-button"
+            to="/blog/"
+          >
+            All Posts
+          </Link>
         </FeaturedTitle>
         <PostsRoll
           posts={posts.slice(skip, limit * currentPage)}
