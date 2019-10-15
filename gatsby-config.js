@@ -42,13 +42,18 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`,
+          "gatsby-remark-autolink-headers",
           {
-            resolve: `gatsby-remark-images-contentful`,
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              noInlineHighlight: true,
+            },
+          },
+          {
+            resolve: "gatsby-remark-images-contentful",
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
@@ -64,12 +69,12 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/, // See below to configure properly
+          include: /images/,
         },
       },
     },
     {
-      resolve: `gatsby-plugin-google-tagmanager`,
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GOOGLE_TAGMANAGER,
         // Include GTM in development.
@@ -85,24 +90,24 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: `Ahmed Mokhtar`,
-        short_name: `A.Mokhtar`,
-        description: `Ahmed Mokhtar Portfolio and Blog.`,
-        display: `standalone`,
-        icon: `src/images/logo.png`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#00A8E8`,
+        name: "Ahmed Mokhtar",
+        short_name: "A.Mokhtar",
+        description: "Ahmed Mokhtar Portfolio and Blog.",
+        display: "standalone",
+        icon: "src/images/logo.png",
+        start_url: "/",
+        background_color: "#fff",
+        theme_color: "#00A8E8",
       },
     },
-    `gatsby-plugin-offline`,
+    "gatsby-plugin-offline",
     {
-      resolve: `gatsby-plugin-purgecss`,
+      resolve: "gatsby-plugin-purgecss",
       options: {
         printRejected: true, // Print removed selectors and processed file names
-        // develop: true, // Enable while using `gatsby develop`
+        // develop: true, // Enable while using "gatsby develop"
       },
     },
     // Enable HTTP/2 push for critical assets.

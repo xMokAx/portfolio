@@ -57,6 +57,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  if (res.errors) {
+    throw res.errors
+  }
+
   const blogPosts = res.data.allContentfulBlogPost.edges
   const tags = res.data.allContentfulTag.edges
   const projects = res.data.allContentfulProject.edges

@@ -630,15 +630,6 @@ pre[class*="language-"] ::selection {
   background: hsla(0, 0%, 100%, 0.15);
 }
 
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  border-radius: 0.3em;
-  background: whitesmoke;
-  color: $prussian-blue-light;
-  padding: 0.15em 0.2em 0.05em;
-  white-space: normal;
-}
-
 .token.attr-name {
   color: rgb(173, 219, 103);
   font-style: italic;
@@ -763,4 +754,8 @@ pre[data-line] {
     padding-left: 0.625rem;
     border-left-width: 0.125rem;
   }
+}
+
+code {
+  color: $prussian-blue;
 }

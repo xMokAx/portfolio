@@ -26,7 +26,7 @@ const Comment = ({
         behavior: "smooth",
       })
     }
-  }, [replyingTo])
+  }, [formElementRef, isReplying])
   return (
     <article className="box comment flex flex-vertical" key={id}>
       <div className="media">
