@@ -2,7 +2,8 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
 
-import "./all.scss"
+import "../styles/all.scss"
+import "../styles/prism.css"
 import Nav from "./nav"
 
 const Layout = props => {
