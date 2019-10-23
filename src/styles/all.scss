@@ -573,3 +573,12 @@ $footer-padding: 1rem 1rem 1.5rem;
     }
   }
 }
+
+// fix margin in markdown table of contents
+.content div ul li p {
+  margin-bottom: 0 !important;
+}
+
+code {
+  color: $prussian-blue;
+}

@@ -114,6 +114,8 @@ module.exports = {
       options: {
         printRejected: true, // Print removed selectors and processed file names
         develop: true, // Enable while using "gatsby develop"
+        whitelistPatternsChildren: [/^content/],
+        whitelistPatterns: [/code/],
       },
     },
     // Enable HTTP/2 push for critical assets.
