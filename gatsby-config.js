@@ -24,6 +24,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     "gatsby-transformer-yaml",
+    "gatsby-transformer-inline-svg",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -115,7 +116,7 @@ module.exports = {
         printRejected: true, // Print removed selectors and processed file names
         develop: true, // Enable while using "gatsby develop"
         whitelistPatternsChildren: [/^content/],
-        whitelistPatterns: [/code/],
+        whitelistPatterns: [/code/, /blockquote/],
       },
     },
     // Enable HTTP/2 push for critical assets.

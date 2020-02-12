@@ -129,7 +129,8 @@ const NavBar = () => {
             className="contact scale"
             aria-label={`${author}'s facebook`}
           >
-            <FacebookIcon /> */}
+            <FacebookIcon />
+          </a> */}
           <a
             href="mailto:ahmedmokhtar11j@gmail.com"
             className="contact scale"

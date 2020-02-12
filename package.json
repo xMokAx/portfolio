@@ -10,7 +10,7 @@
     "build": "env-cmd -f .env.production gatsby build",
     "develop": "env-cmd -f .env.development gatsby develop",
     "format": "prettier --write **/*.{js,jsx,json,css,scss,md}",
-    "start": "yarn develop",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
@@ -37,6 +37,7 @@
     "gatsby-remark-prismjs": "^3.3.20",
     "gatsby-source-contentful": "^2.1.49",
     "gatsby-source-filesystem": "^2.1.33",
+    "gatsby-transformer-inline-svg": "0.0.4",
     "gatsby-transformer-remark": "^2.6.30",
     "gatsby-transformer-sharp": "^2.2.23",
     "gatsby-transformer-yaml": "^2.2.15",
@@ -62,7 +63,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css,scss,md}": [
-      "yarn format",
+      "npm run format",
       "git add"
     ]
   },

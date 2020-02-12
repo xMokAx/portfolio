@@ -2,12 +2,20 @@ import React from "react"
 
 import Techno from "./techno"
 
-const TechnoList = ({ icons }) => (
-  <div className="box is-flex flex-wrap">
-    {icons.map(({ Icon, title }) => (
-      <Techno key={title} Icon={Icon} title={title} />
-    ))}
-  </div>
-)
+const TechnoList = ({ allSkills, svgs }) =>
+  Object.entries(allSkills).map(([category, skills]) => {
+    return (
+      <div key={category} className="box is-flex flex-wrap">
+        {skills.map(tech => {
+          const mySvg = svgs.find(s => {
+            return s.svg.absolutePath.includes(
+              `${tech.toLowerCase().replace(/[^a-zA-Z]+/g, "")}.svg`
+            )
+          })
+          return <Techno key={tech} icon={mySvg.svg.content} title={tech} />
+        })}
+      </div>
+    )
+  })
 
 export default TechnoList
