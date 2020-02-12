@@ -15,60 +15,62 @@ const PostCard = ({
   tags,
   homePage,
 }) => (
-  <article
-    className={`box is-flex flex-vertical translate-up cursor-pointer ${
-      featured && !homePage ? "is-featured" : ""
-    }`}
+  <button
     onClick={e => {
       if (e.target.tagName !== "A") {
         navigate(`/blog/${slug}/`)
       }
     }}
+    className={`box box-button translate-up ${
+      featured && !homePage ? "is-featured" : ""
+    }`}
   >
-    <div className="media blog-card-header">
-      {featuredImage && (
-        <div className="media-left has-shadow">
-          <Image
-            fixed={featuredImage.fixed}
-            alt={`${
-              featuredImage.description
-                ? featuredImage.description
-                : featuredImage.title
-            }`}
-            className=""
-          />
-        </div>
-      )}
-      <div className="media-content">
-        <div className="content">
-          <Link to={`/blog/${slug}/`} className="is-underlined-link">
-            <h2 className="title is-size-5-mobile is-marginless">{title}</h2>
-          </Link>
-          <div>
-            <small className="is-block">
-              <span role="img" aria-label="publish date">
-                📅
-              </span>{" "}
-              {publishDate}
-            </small>
-            <small className="is-block">
-              <span role="img" aria-label="time to read">
-                ⏱️
-              </span>{" "}
-              {timeToRead} min read
-            </small>
-            <TagsList tags={tags} className="are-small" />
+    <article>
+      <div className="media blog-card-header">
+        {featuredImage && (
+          <div className="media-left has-shadow">
+            <Image
+              fixed={featuredImage.fixed}
+              alt={`${
+                featuredImage.description
+                  ? featuredImage.description
+                  : featuredImage.title
+              }`}
+              className=""
+            />
+          </div>
+        )}
+        <div className="media-content">
+          <div className="content">
+            <Link to={`/blog/${slug}/`} className="is-underlined-link">
+              <h2 className="title is-size-5-mobile is-marginless">{title}</h2>
+            </Link>
+            <div>
+              <small className="is-block">
+                <span role="img" aria-label="publish date">
+                  📅
+                </span>{" "}
+                {publishDate}
+              </small>
+              <small className="is-block">
+                <span role="img" aria-label="time to read">
+                  ⏱️
+                </span>{" "}
+                {timeToRead} min read
+              </small>
+              <TagsList tags={tags} className="are-small" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div className="content">
-      <p>{description}</p>
-      <Link to={`/blog/${slug}/`} className="button is-link is-outlined">
-        Continue reading &rarr;
-      </Link>
-    </div>
-  </article>
+      <div className="content">
+        <p>{description}</p>
+        <Link to={`/blog/${slug}/`} className="button is-link is-outlined">
+          Continue reading &rarr;
+        </Link>
+      </div>
+    </article>
+  </button>
 )
 
 export default PostCard

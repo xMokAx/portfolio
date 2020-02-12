@@ -325,7 +325,7 @@ $footer-padding: 1rem 1rem 1.5rem;
 }
 
 .is-featured {
-  background-color: rgba($primary, 0.15);
+  background-color: rgba($primary, 0.1);
 }
 
 .techno-icon {
@@ -357,6 +357,19 @@ $footer-padding: 1rem 1rem 1.5rem;
 
 .blog-card-header .media-content {
   padding-bottom: 8px;
+}
+
+.card-button,
+.box-button {
+  border: none;
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.card-button {
+  padding: 0;
 }
 
 .form-icon {
