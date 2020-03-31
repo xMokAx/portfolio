@@ -223,7 +223,7 @@ const Head = ({
           publisher: {
             "@id": `${siteUrl}#organization`,
           },
-          copyrightYear: "2019",
+          copyrightYear: "2020",
         },
       ],
     },

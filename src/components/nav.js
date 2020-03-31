@@ -169,7 +169,7 @@ const NavBar = () => {
         <footer id="#footer">
           <p className="is-flex flex-align-center flex-justify-center has-text-grey has-text-centered">
             <Logo className="logo" />
-            <small>© 2019 {author}.</small>
+            <small>© 2020 {author}.</small>
           </p>
         </footer>
       </div>
