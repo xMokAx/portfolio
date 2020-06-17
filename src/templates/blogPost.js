@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react"
+import React, { useState, Fragment, useLayoutEffect } from "react"
 import { graphql, Link } from "gatsby"
 import Image from "gatsby-image"
 
@@ -7,6 +7,8 @@ import TagsList from "../components/tagsList"
 import Comment from "../components/comment"
 import NestedComment from "../components/nestedComment"
 import CommentForm from "../components/commentForm"
+import ArrowUpward from "../images/arrow_upward.svg"
+import { useWindowHeight } from "../hooks"
 
 export const query = graphql`
   query($slug: String!) {
@@ -60,6 +62,17 @@ export const query = graphql`
 // date(formatString: "dddd, MMMM Do, YYYY - hh:mm z")
 const BlogPost = ({ data, pageContext, location }) => {
   const [replyingTo, setReplyingTo] = useState("")
+  const [scrollTop, setScrollTop] = useState(0)
+  const windowHeight = useWindowHeight()
+  useLayoutEffect(() => {
+    const cb = function(e) {
+      setScrollTop(document.documentElement.scrollTop)
+    }
+    document.addEventListener("scroll", cb)
+    return () => {
+      document.removeEventListener("scroll", cb)
+    }
+  }, [])
 
   const {
     slug,
@@ -185,6 +198,23 @@ const BlogPost = ({ data, pageContext, location }) => {
           </nav>
         </div>
       </section>
+      {scrollTop > windowHeight * 2 && (
+        <button
+          onClick={() => {
+            document.documentElement.scroll({
+              top: 0,
+              left: 0,
+              behavior: "smooth",
+            })
+          }}
+          className="button is-circle is-danger arrowup-btn"
+          aria-label="scroll to top"
+        >
+          <span className="icon">
+            <ArrowUpward />
+          </span>
+        </button>
+      )}
     </Fragment>
   )
 }

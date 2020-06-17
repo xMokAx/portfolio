@@ -378,6 +378,14 @@ $footer-padding: 1rem 1rem 1.5rem;
   fill: #dbdbdb;
 }
 
+.arrowup-btn {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  height: 48px;
+  width: 48px;
+}
+
 .nested-comments {
   position: relative;
   margin: 24px 0 0 24px;
