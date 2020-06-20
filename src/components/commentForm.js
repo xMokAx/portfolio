@@ -6,10 +6,10 @@ import AboutIcon from "../images/menu/about.svg"
 // TODO: Maybe convert it to a controlled form.
 // using forwardRef to pass ref recieved from Comment Component to form element.
 const CommentForm = forwardRef(
-  ({ slug, replyingTo, setReplyingTo, title }, ref) => {
+  ({ slug, replyingTo, setReplyingTo, title, className }, ref) => {
     return (
       <form
-        className="comment-form"
+        className={`comment-form ${className}`}
         ref={ref}
         id={`${replyingTo ? replyingTo : "comment"}-form`}
         method="POST"

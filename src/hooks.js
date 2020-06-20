@@ -10,7 +10,9 @@ export const useWindowHeight = () => {
   const [windowHeight, setWindowHeight] = useState(defaultHeight)
 
   useLayoutEffect(() => {
-    const cb = () => setWindowHeight(window.innerHeight)
+    const cb = () => {
+      setWindowHeight(window.innerHeight)
+    }
 
     window.addEventListener(`resize`, cb)
     return () => window.removeEventListener(`resize`, cb)

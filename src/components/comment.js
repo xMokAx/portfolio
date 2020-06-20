@@ -1,7 +1,9 @@
-import React, { useEffect } from "react"
+import React, { createRef } from "react"
 import { CSSTransition } from "react-transition-group"
 
 import CommentForm from "./commentForm"
+
+const formElementRef = createRef()
 
 const Comment = ({
   id,
@@ -14,19 +16,7 @@ const Comment = ({
   children,
   slug,
 }) => {
-  const formElementRef = React.createRef()
   const isReplying = replyingTo === name
-  // useEffect runs this function when replyingTo changes.
-  useEffect(() => {
-    // scroll only if replyingTo changes from false to true
-    if (isReplying) {
-      window.scrollTo({
-        left: 0,
-        top: formElementRef.current.offsetTop,
-        behavior: "smooth",
-      })
-    }
-  }, [formElementRef, isReplying])
   return (
     <article className="box comment flex flex-vertical" key={id}>
       <div className="media">
@@ -50,54 +40,28 @@ const Comment = ({
         </div>
       </div>
       <p className="comment-text">{comment}</p>
-      {!children && (
-        <button
-          className="button is-link"
-          style={{ marginTop: "16px" }}
-          onClick={() => {
-            // scroll only if the form is already shown.
-            setReplyingTo(name)
-            if (isReplying) {
-              window.scrollTo({
-                left: 0,
-                top: formElementRef.current.offsetTop,
-                behavior: "smooth",
-              })
-            }
-          }}
-        >
-          Reply
-        </button>
-      )}
       {children && (
         <div className="box nested-comments has-background-light">
           {children}
         </div>
       )}
-      {children && (
-        <button
-          className="button is-link"
-          onClick={() => {
-            setReplyingTo(name)
-            if (isReplying) {
-              window.scrollTo({
-                left: 0,
-                top: formElementRef.current.offsetTop,
-                behavior: "smooth",
-              })
-            }
-          }}
-        >
-          Reply
-        </button>
-      )}
-      <CSSTransition
-        in={isReplying}
-        timeout={315}
-        classNames="slide"
-        unmountOnExit
+      <button
+        className="button is-link"
+        style={{ marginTop: !children && "16px" }}
+        onClick={() => {
+          setReplyingTo(name)
+          window.scrollTo({
+            left: 0,
+            top: formElementRef.current.offsetTop,
+            behavior: "smooth",
+          })
+        }}
       >
+        Reply
+      </button>
+      <CSSTransition in={isReplying} timeout={315} classNames="slide">
         <CommentForm
+          className="slide-enter"
           ref={formElementRef}
           slug={slug}
           replyingTo={replyingTo}
