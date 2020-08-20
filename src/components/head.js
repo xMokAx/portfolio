@@ -34,7 +34,7 @@ const Head = ({
     }
   `)
 
-  const {
+  let {
     title,
     author,
     altAuthor,
@@ -51,10 +51,10 @@ const Head = ({
   const pageTitle = `${
     customTitle ? `${customTitle} ` : ""
   }${author} | ${title}`
+  siteUrl += "/"
   const ogUrl = `${siteUrl.slice(0, -1)}${pathname}`
   let ogImage = image
   let ogDescription = description
-
   const schemaJSON = [
     {
       "@context": "http://www.schema.org",
@@ -63,29 +63,6 @@ const Head = ({
       name: author,
       alternateName: altAuthor,
       email,
-      nationality: "Egyptian",
-      birthPlace: {
-        "@type": "Place",
-        address: {
-          "@id": `${siteUrl}#address`,
-          "@type": "PostalAddress",
-          addressLocality: "Port Fouad",
-          addressRegion: "Port Said",
-          addressCountry: "Egypt",
-        },
-      },
-      alumniOf: [
-        {
-          "@type": "EducationalOrganization",
-          name: "Udacity",
-          sameAs: "https://www.udacity.com/",
-        },
-        {
-          "@type": "CollegeOrUniversity",
-          name: "Faculty of Science",
-        },
-      ],
-      gender: "Male",
       Description: myDescription,
       disambiguatingDescription: shortDescription,
       jobTitle: title,
@@ -97,15 +74,12 @@ const Head = ({
         height: 512,
         width: 512,
       },
-      address: {
-        "@id": `${siteUrl}#address`,
-      },
       sameAs: contact,
     },
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      "@id": `${siteUrl}site`,
+      "@id": `${siteUrl}#site`,
       additionalType: ["CreativeWork", "Person"],
       url: siteUrl,
       name: author,
@@ -294,17 +268,17 @@ const Head = ({
           {
             "@type": "ListItem",
             position: 1,
+            name: author,
             item: {
               "@id": siteUrl,
-              name: author,
             },
           },
           {
             "@type": "ListItem",
             position: 2,
+            name: "About",
             item: {
               "@id": ogUrl,
-              name: "About",
             },
           },
         ],
@@ -350,17 +324,17 @@ const Head = ({
           {
             "@type": "ListItem",
             position: 1,
+            name: author,
             item: {
               "@id": siteUrl,
-              name: author,
             },
           },
           {
             "@type": "ListItem",
             position: 2,
+            name: "Projects",
             item: {
               "@id": ogUrl,
-              name: "Projects",
             },
           },
         ],
@@ -412,25 +386,25 @@ const Head = ({
           {
             "@type": "ListItem",
             position: 1,
+            name: author,
             item: {
               "@id": siteUrl,
-              name: author,
             },
           },
           {
             "@type": "ListItem",
             position: 2,
+            name: "Projects",
             item: {
               "@id": `${siteUrl}projects/`,
-              name: "Projects",
             },
           },
           {
             "@type": "ListItem",
             position: 3,
+            name: project.title,
             item: {
               "@id": ogUrl,
-              name: project.title,
             },
           },
         ],
@@ -487,7 +461,7 @@ const Head = ({
       },
     })
   } else if (pageType === "blog" || pageType === "tag") {
-    ogDescription = `Personal blog of ${author} where he writes about his personal thoughts, his learning journey and modern Front-End Development technologies`
+    ogDescription = `Personal blog of ${author} where he writes about his personal thoughts, his learning journey and modern Web Development technologies`
     schemaJSON.push({
       "@context": "http://schema.org",
       "@type": "CollectionPage",
@@ -502,25 +476,25 @@ const Head = ({
                 {
                   "@type": "ListItem",
                   position: 1,
+                  name: author,
                   item: {
                     "@id": siteUrl,
-                    name: author,
                   },
                 },
                 {
                   "@type": "ListItem",
+                  name: "Blog",
                   position: 2,
                   item: {
                     "@id": `${siteUrl}blog/`,
-                    name: "Blog",
                   },
                 },
                 {
                   "@type": "ListItem",
                   position: 3,
+                  name: tag,
                   item: {
                     "@id": ogUrl,
-                    name: tag,
                   },
                 },
               ],
@@ -532,17 +506,17 @@ const Head = ({
                 {
                   "@type": "ListItem",
                   position: 1,
+                  name: author,
                   item: {
                     "@id": siteUrl,
-                    name: author,
                   },
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
+                  name: "Blog",
                   item: {
                     "@id": ogUrl,
-                    name: "Blog",
                   },
                 },
               ],
@@ -597,25 +571,25 @@ const Head = ({
           {
             "@type": "ListItem",
             position: 1,
+            name: author,
             item: {
               "@id": siteUrl,
-              name: author,
             },
           },
           {
             "@type": "ListItem",
             position: 2,
+            name: "Blog",
             item: {
               "@id": `${siteUrl}blog/`,
-              name: "Blog",
             },
           },
           {
             "@type": "ListItem",
             position: 3,
+            name: post.title,
             item: {
               "@id": ogUrl,
-              name: post.title,
             },
           },
         ],
